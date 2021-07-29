@@ -1,0 +1,56 @@
+{
+	"author": {
+		"name": "lusc",
+		"url": "https://github.com/melusc"
+	},
+	"ava": {
+		"environmentVariables": {
+			"NODE_ENV": "AVA_TESTING",
+			"files": [
+				"test/**/*"
+			],
+			"typescript": {
+				"extensions": [
+					"ts"
+				],
+				"rewritePaths": {
+					"test/": "dist/test"
+				}
+			}
+		}
+	},
+	"dependencies": {
+		"kind-of": "^6.0.3"
+	},
+	"description": "Summarise json as typescript type declaration",
+	"devDependencies": {
+		"@ava/typescript": "^1.1.1",
+		"@sindresorhus/tsconfig": "^1.0.2",
+		"ava": "^3.15.0",
+		"prettier": "^2.3.2",
+		"type-fest": "^0.3.1",
+		"typescript": "^4.3.5",
+		"xo": "^0.42.0"
+	},
+	"engines": {
+		"node": ">=12.20"
+	},
+	"files": [
+		"./dist"
+	],
+	"keywords": [
+		"json",
+		"types",
+		"typescript",
+		"declaration"
+	],
+	"license": "MIT",
+	"name": "@lusc/json-type",
+	"repository": "melusc/json-type",
+	"scripts": {
+		"lint": "prettier -w \"./*.{json,prettierrc}\" && xo --fix \"src/**/*.ts\"",
+		"test": "xo && ava"
+	},
+	"type": "module",
+	"version": "0.0.1"
+}
