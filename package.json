@@ -48,7 +48,7 @@
 	"name": "@lusc/json-type",
 	"repository": "melusc/json-type",
 	"scripts": {
-		"lint": "prettier -w \"./*.{json,prettierrc}\" && xo --fix \"src/**/*.ts\"",
+		"lint": "prettier -w \"*.json\" .prettierrc \"{src,test}/**/*\" && xo --fix \"src/**/*.ts\"",
 		"test": "xo && ava"
 	},
 	"type": "module",
