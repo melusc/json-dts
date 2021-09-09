@@ -4,7 +4,6 @@
 		"url": "https://github.com/melusc"
 	},
 	"ava": {
-		"compile": false,
 		"environmentVariables": {
 			"NODE_ENV": "AVA_TESTING"
 		},
@@ -12,11 +11,12 @@
 				"test/**/*"
 			],
 			"typescript": {
+			"compile": false,
 				"extensions": [
 					"ts"
 				],
 				"rewritePaths": {
-					"test/": "dist/test"
+				"test/": "dist/test/"
 				}
 			}
 	},
