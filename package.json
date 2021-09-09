@@ -4,8 +4,10 @@
 		"url": "https://github.com/melusc"
 	},
 	"ava": {
+		"compile": false,
 		"environmentVariables": {
-			"NODE_ENV": "AVA_TESTING",
+			"NODE_ENV": "AVA_TESTING"
+		},
 			"files": [
 				"test/**/*"
 			],
@@ -17,7 +19,6 @@
 					"test/": "dist/test"
 				}
 			}
-		}
 	},
 	"dependencies": {
 		"kind-of": "^6.0.3"
