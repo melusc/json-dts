@@ -1,8 +1,7 @@
 {
 	"compilerOptions": {
-		"target": "es2020",
-		"outDir": "./dist"
+		"outDir": "dist"
 	},
-	"extends": "@sindresorhus/tsconfig",
+	"extends": "@lusc/tsconfig",
 	"include": ["src/**/*.ts"]
 }
