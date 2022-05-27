@@ -24,7 +24,7 @@
 	"description": "Summarise json as typescript type declaration",
 	"devDependencies": {
 		"@ava/typescript": "^3.0.1",
-		"@lusc/tsconfig": "^1.1.0",
+		"@lusc/tsconfig": "^1.2.2",
 		"ava": "^4.2.0",
 		"prettier": "^2.6.2",
 		"type-fest": "^2.12.2",
