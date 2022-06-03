@@ -28,7 +28,7 @@
 		"ava": "^4.2.0",
 		"prettier": "^2.6.2",
 		"type-fest": "^2.12.2",
-		"typescript": "^4.6.4",
+		"typescript": "^4.7.3",
 		"xo": "^0.49.0"
 	},
 	"engines": {
