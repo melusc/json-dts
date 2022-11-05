@@ -20,7 +20,7 @@
 			}
 		}
 	},
-	"packageManager": "yarn@3.2.1",
+	"packageManager": "yarn@3.2.4",
 	"description": "Summarise json as typescript type declaration",
 	"devDependencies": {
 		"@ava/typescript": "^3.0.1",
