@@ -3,5 +3,5 @@
 		"outDir": "dist"
 	},
 	"extends": "@lusc/tsconfig",
-	"include": ["src/**/*.ts"]
+	"include": ["test/**/*.ts", "src/**/*.ts"]
 }
