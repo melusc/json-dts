@@ -91,7 +91,7 @@ __metadata:
     "@ava/typescript": ^3.0.1
     "@lusc/tsconfig": ^1.1.0
     ava: ^4.2.0
-    prettier: ^2.6.2
+    prettier: ^2.7.1
     type-fest: ^2.12.2
     typescript: ^4.6.4
     xo: ^0.49.0
@@ -3772,6 +3772,15 @@ __metadata:
   bin:
     prettier: bin-prettier.js
   checksum: 48d08dde8e9fb1f5bccdd205baa7f192e9fc8bc98f86e1b97d919de804e28c806b0e6cc685e4a88211aa7987fa9668f30baae19580d87ced3ed0f2ec6572106f
+  languageName: node
+  linkType: hard
+
+"prettier@npm:^2.7.1":
+  version: 2.7.1
+  resolution: "prettier@npm:2.7.1"
+  bin:
+    prettier: bin-prettier.js
+  checksum: 55a4409182260866ab31284d929b3cb961e5fdb91fe0d2e099dac92eaecec890f36e524b4c19e6ceae839c99c6d7195817579cdffc8e2c80da0cb794463a748b
   languageName: node
   linkType: hard
 
