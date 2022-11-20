@@ -27,7 +27,7 @@ test('string', t => {
 });
 
 test('array', t => {
-	t.deepEqual<Ast, Ast>(toAst([1,2,3], ), {
+	t.deepEqual<Ast, Ast>(toAst([1, 2, 3]), {
 		type: Types.array,
 		value: [
 			{
@@ -39,6 +39,6 @@ test('array', t => {
 			{
 				type: Types.number,
 			},
-		]
-	})
-})
+		],
+	});
+});

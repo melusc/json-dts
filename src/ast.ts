@@ -11,15 +11,15 @@ export const enum Types {
 
 export type Ast =
 	| {
-			type: Types.boolean | Types.number | Types.null | Types.string;
+		type: Types.boolean | Types.number | Types.null | Types.string;
 	  }
 	| {
-			type: Types.array;
-			value: Ast[];
+		type: Types.array;
+		value: Ast[];
 	  }
 	| {
-			type: Types.object;
-			value: Record<string, Ast>;
+		type: Types.object;
+		value: Record<string, Ast>;
 	  };
 
 export const toAst = (input: JsonValue): Ast => {
