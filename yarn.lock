@@ -89,7 +89,7 @@ __metadata:
   resolution: "@lusc/json-type@workspace:."
   dependencies:
     "@ava/typescript": ^3.0.1
-    "@lusc/tsconfig": ^1.1.0
+    "@lusc/tsconfig": ^2.0.0
     ava: ^4.2.0
     prettier: ^2.6.2
     type-fest: ^2.12.2
@@ -98,10 +98,10 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@lusc/tsconfig@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@lusc/tsconfig@npm:1.1.0"
-  checksum: 4e999382dbbf78614b077e879552cdc8de8b2add11b374adaddb250723d1168a797cae9b5adf370d199feaff6206b447acccf2adb1b79a052cc07118732feee3
+"@lusc/tsconfig@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@lusc/tsconfig@npm:2.0.0"
+  checksum: ab5aaa96cc762c55a07d6b1d56503418deb7233390c8bbd7a625dd19f51942188b75ea78739e194615c851a02f2f146cece03487fe3c8a3ee4dc788c85f12175
   languageName: node
   linkType: hard
 
