@@ -1,7 +1,7 @@
 import {Types, type Ast} from '../ast.js';
 import {makeTraverse} from './traverse.js';
 
-export const mergeUnion = makeTraverse({
+export const simplifyUnion = makeTraverse({
 	union(ast) {
 		if (ast.type !== Types.union) {
 			return false;

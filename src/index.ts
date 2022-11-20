@@ -1,13 +1,13 @@
 import type {JsonValue} from 'type-fest';
 
 import {toAst, type Ast} from './ast.js';
-import {mergeDeep} from './merge/index.js';
+import {simplifyDeep} from './simplify/index.js';
 
 export * from './ast.js';
 
 export const jsonTypeAst = (input: JsonValue): Ast => {
-	const ast = toAst(input);
-	mergeDeep(ast);
+	let ast = toAst(input);
+	ast = simplifyDeep(ast);
 
 	return ast;
 };

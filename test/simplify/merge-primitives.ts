@@ -1,7 +1,7 @@
 import test from 'ava';
 
 import {toAst, Types, type Ast} from '../../src/ast.js';
-import {mergePrimitives} from '../../src/merge/merge-primitives.js';
+import {mergePrimitives} from '../../src/simplify/merge-primitives.js';
 
 test('Array of numbers', t => {
 	const ast = toAst([1, 2, 3, 4, 5, 6]);

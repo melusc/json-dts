@@ -1,7 +1,7 @@
 import test from 'ava';
 import {Types, type UnionAst} from '../../src/ast.js';
 
-import {mergeUnion} from '../../src/merge/merge-union.js';
+import {simplifyUnion} from '../../src/simplify/simplify-union.js';
 
 test('Union with unions', t => {
 	const input: UnionAst = {
@@ -44,7 +44,7 @@ test('Union with unions', t => {
 		]),
 	};
 
-	t.deepEqual(mergeUnion(input), expected);
+	t.deepEqual(simplifyUnion(input), expected);
 });
 
 test('Union with mixed types', t => {
@@ -89,5 +89,5 @@ test('Union with mixed types', t => {
 		]),
 	};
 
-	t.deepEqual(mergeUnion(input), expected);
+	t.deepEqual(simplifyUnion(input), expected);
 });
