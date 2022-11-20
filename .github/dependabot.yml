@@ -2,13 +2,9 @@
 
 version: 2
 updates:
-  # Enable version updates for npm
-  - package-ecosystem: 'npm'
-    # Look for `package.json` and `lock` files in the `root` directory
+  - package-ecosystem: 'github-actions'
     directory: '/'
-    # Check the npm registry for updates weekly
     schedule:
       interval: 'weekly'
       day: 'friday'
-    # Basically no limit
     open-pull-requests-limit: 50
