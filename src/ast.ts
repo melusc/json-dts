@@ -54,7 +54,7 @@ export const toAst = (input: JsonValue): Ast => {
 		};
 	}
 
-	const result: Record<string, Ast> = Object.create(null);
+	const result = Object.create(null) as Record<string, Ast>;
 
 	for (const key of Object.keys(input)) {
 		result[key] = toAst(input[key]!);
