@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import {Ast, toAst, Types} from '../src/ast.js';
+import {toAst, Types, type Ast, type ObjectValueAst} from '../src/ast.js';
 
 test('number', t => {
 	t.deepEqual<Ast, Ast>(toAst(2), {
@@ -29,16 +29,177 @@ test('string', t => {
 test('array', t => {
 	t.deepEqual<Ast, Ast>(toAst([1, 2, 3]), {
 		type: Types.array,
-		value: [
-			{
-				type: Types.number,
-			},
-			{
-				type: Types.number,
-			},
-			{
-				type: Types.number,
-			},
-		],
+		value: {
+			type: Types.union,
+			value: new Set([
+				{
+					type: Types.number,
+				},
+				{
+					type: Types.number,
+				},
+				{
+					type: Types.number,
+				},
+			]),
+		},
 	});
+});
+
+test('object', t => {
+	t.deepEqual<Ast, Ast>(
+		toAst({
+			a: true,
+			b: 0,
+			c: 'abc',
+			d: null,
+		}),
+		{
+			type: Types.object,
+			value: new Map<string, ObjectValueAst>([
+				[
+					'a',
+					{
+						type: Types.objectValue,
+						optional: false,
+						value: {type: Types.boolean},
+					},
+				],
+				[
+					'b',
+					{
+						type: Types.objectValue,
+						optional: false,
+						value: {type: Types.number},
+					},
+				],
+				[
+					'c',
+					{
+						type: Types.objectValue,
+						optional: false,
+						value: {type: Types.string},
+					},
+				],
+				[
+					'd',
+					{type: Types.objectValue, optional: false, value: {type: Types.null}},
+				],
+			]),
+		},
+	);
+});
+
+test('mixed', t => {
+	t.deepEqual<Ast, Ast>(
+		toAst({
+			a: true,
+			b: [
+				{
+					c: {
+						d: [[{g: true}]],
+					},
+					h: null,
+				},
+				'abc',
+			],
+		}),
+		{
+			type: Types.object,
+			value: new Map<string, ObjectValueAst>([
+				[
+					'a',
+					{
+						type: Types.objectValue,
+						optional: false,
+						value: {type: Types.boolean},
+					},
+				],
+				[
+					'b',
+					{
+						type: Types.objectValue,
+						optional: false,
+						value: {
+							type: Types.array,
+							value: {
+								type: Types.union,
+								value: new Set<Ast>([
+									{
+										type: Types.object,
+										value: new Map<string, ObjectValueAst>([
+											[
+												'c',
+												{
+													type: Types.objectValue,
+													optional: false,
+													value: {
+														type: Types.object,
+														value: new Map<string, ObjectValueAst>([
+															[
+																'd',
+																{
+																	type: Types.objectValue,
+																	optional: false,
+																	value: {
+																		type: Types.array,
+																		value: {
+																			type: Types.union,
+																			value: new Set<Ast>([
+																				{
+																					type: Types.array,
+																					value: {
+																						type: Types.union,
+																						value: new Set<Ast>([
+																							{
+																								type: Types.object,
+																								value: new Map<
+																									string,
+																									ObjectValueAst
+																								>([
+																									[
+																										'g',
+																										{
+																											type: Types.objectValue,
+																											optional: false,
+																											value: {
+																												type: Types.boolean,
+																											},
+																										},
+																									],
+																								]),
+																							},
+																						]),
+																					},
+																				},
+																			]),
+																		},
+																	},
+																},
+															],
+														]),
+													},
+												},
+											],
+											[
+												'h',
+												{
+													type: Types.objectValue,
+													optional: false,
+													value: {type: Types.null},
+												},
+											],
+										]),
+									},
+									{
+										type: Types.string,
+									},
+								]),
+							},
+						},
+					},
+				],
+			]),
+		},
+	);
 });
