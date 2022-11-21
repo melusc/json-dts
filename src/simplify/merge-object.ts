@@ -9,6 +9,31 @@ function * filterUndefined<T>(...array: Array<T | undefined>): Iterable<T> {
 	}
 }
 
+const mergeInto = (
+	target: Map<string, ObjectValueAst>,
+	object: ObjectAst,
+	isFirst: boolean,
+): void => {
+	if (isFirst) {
+		for (const [key, value] of object.value) {
+			target.set(key, value);
+		}
+
+		return;
+	}
+
+	for (const [key, value] of object.value) {
+		target.set(key, {
+			type: Types.objectValue,
+			optional: !target.has(key) || target.get(key)!.optional || value.optional,
+			value: {
+				type: Types.union,
+				value: new Set(filterUndefined(target.get(key)?.value, value.value)),
+			},
+		});
+	}
+};
+
 /**
 Merge objects in unions
 
@@ -25,55 +50,34 @@ If all objects have `key` it is not optional
  */
 export const mergeObject = makeTraverse({
 	union(ast) {
-		const objects = new Set<ObjectAst>();
-		const rest = new Set<Ast>();
+		const result = new Set<Ast>();
+
+		let amountObjectsFound = 0;
+		const mergedObject = new Map<string, ObjectValueAst>();
 
 		for (const item of ast.value) {
 			if (item.type === Types.object) {
-				objects.add(item);
-			} else {
-				rest.add(item);
-			}
-		}
-
-		if (objects.size <= 1) {
-			return false;
-		}
-
-		const merged = {
-			type: Types.object,
-			value: new Map<string, ObjectValueAst>(),
-		};
-		let isFirst = true;
-		for (const item of objects) {
-			for (const [key, value] of item.value) {
-				if (isFirst) {
-					merged.value.set(key, value);
-				} else {
-					merged.value.set(key, {
-						type: Types.objectValue,
-						optional:
-							value.optional && (merged.value.get(key)?.optional ?? false),
-						value: {
-							type: Types.union,
-							value: new Set(
-								filterUndefined(merged.value.get(key)?.value, value.value),
-							),
-						},
+				mergeInto(mergedObject, item, amountObjectsFound === 0);
+				if (amountObjectsFound === 0) {
+					result.add({
+						type: Types.object,
+						value: mergedObject,
 					});
 				}
-			}
 
-			isFirst = false;
+				++amountObjectsFound;
+			} else {
+				result.add(item);
+			}
+		}
+
+		if (amountObjectsFound <= 1) {
+			return false;
 		}
 
 		return {
 			type: Types.union,
-			value: new Set<Ast>([
-				...rest,
-				// Todo: Use `satisfies ObjectAst` above when Prettier 2.8 releases
-				merged as ObjectAst,
-			]),
+			value: result,
 		};
 	},
 });
