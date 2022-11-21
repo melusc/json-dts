@@ -93,12 +93,19 @@ test('Union with mixed types', t => {
 });
 
 test('Empty union', t => {
-	t.throws(() => {
-		simplifyUnion({
+	let amountChanges = 0;
+
+	simplifyUnion(
+		{
 			type: Types.union,
 			value: new Set(),
-		});
-	});
+		},
+		() => {
+			++amountChanges;
+		},
+	);
+
+	t.is(amountChanges, 0);
 });
 
 test('Union with one item', t => {

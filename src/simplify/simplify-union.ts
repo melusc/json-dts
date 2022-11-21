@@ -9,10 +9,6 @@ export const simplifyUnion = makeTraverse({
 			return false;
 		}
 
-		if (ast.value.size === 0) {
-			throw new Error('Unexpected empty union');
-		}
-
 		if (ast.value.size === 1) {
 			return [...ast.value][0]!;
 		}
