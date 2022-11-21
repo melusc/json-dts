@@ -17,14 +17,21 @@ export const simplifyUnion = makeTraverse({
 
 		const result = new Set<Ast>();
 
+		let anyMerged = false;
+
 		for (const item of ast.value) {
 			if (item.type === Types.union) {
+				anyMerged = true;
 				for (const unionItem of item.value) {
 					result.add(unionItem);
 				}
 			} else {
 				result.add(item);
 			}
+		}
+
+		if (!anyMerged) {
+			return false;
 		}
 
 		return {
