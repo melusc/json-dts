@@ -4,7 +4,7 @@ import {mergeObject} from './merge-object.js';
 import {mergePrimitives} from './merge-primitives.js';
 import {simplifyUnion} from './simplify-union.js';
 
-export const simplifyDeep = (ast: Ast): Ast => {
+export const simplify = (ast: Ast): Ast => {
 	let anyChanged = false;
 	do {
 		anyChanged = false;
