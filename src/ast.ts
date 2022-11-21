@@ -1,15 +1,15 @@
 import type {JsonValue, ReadonlyDeep} from 'type-fest';
 
 export const enum Types {
-	any,
-	array,
-	boolean,
-	null,
-	number,
-	object,
-	objectValue,
-	string,
-	union,
+	any = 'any',
+	array = 'array',
+	boolean = 'boolean',
+	null = 'null',
+	number = 'number',
+	object = 'object',
+	objectValue = 'objectValue',
+	string = 'string',
+	union = 'union',
 }
 
 export type AnyAst = ReadonlyDeep<{
