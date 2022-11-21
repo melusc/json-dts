@@ -12,12 +12,26 @@ const typescriptExpectValue = <Expected>(_actual: Expected) => {
 };
 
 type TraversalCallback = {
-	union?: (ast: UnionAst) => false | UnionAst;
-	object?: (ast: ObjectAst) => false | ObjectAst;
+	union?: (ast: UnionAst) => false | Ast;
+	object?: (ast: ObjectAst) => false | Ast;
 };
 
 export const makeTraverse = (cb: TraversalCallback) => {
 	const traversalFunction = (ast: Ast, onChange: () => void): Ast => {
+		if (ast.type === Types.union) {
+			const modified = cb.union?.(ast) ?? false;
+			if (modified !== false) {
+				onChange();
+				return traversalFunction(modified, onChange);
+			}
+		} else if (ast.type === Types.object) {
+			const modified = cb.object?.(ast) ?? false;
+			if (modified !== false) {
+				onChange();
+				return traversalFunction(modified, onChange);
+			}
+		}
+
 		if (isPrimitive(ast)) {
 			return ast;
 		}
@@ -30,14 +44,8 @@ export const makeTraverse = (cb: TraversalCallback) => {
 		}
 
 		if (ast.type === Types.union) {
-			const modified = cb.union?.(ast) ?? false;
-			const next = modified === false ? ast : modified;
-			if (modified !== false) {
-				onChange();
-			}
-
 			const result = new Set<Ast>();
-			for (const item of next.value) {
+			for (const item of ast.value) {
 				result.add(traversalFunction(item, onChange));
 			}
 
@@ -49,14 +57,8 @@ export const makeTraverse = (cb: TraversalCallback) => {
 
 		typescriptExpectValue<Types.object>(ast.type);
 
-		const modified = cb.object?.(ast) ?? false;
-		const next = modified === false ? ast : modified;
-		if (modified !== false) {
-			onChange();
-		}
-
 		const result = new Map<string, ObjectValueAst>();
-		for (const [key, value] of next.value) {
+		for (const [key, value] of ast.value) {
 			result.set(key, {
 				...value,
 				value: traversalFunction(value.value, onChange),
