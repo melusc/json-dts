@@ -1,5 +1,5 @@
 import test from 'ava';
-import {Types, type UnionAst} from '../../src/ast.js';
+import {Types, type Ast, type UnionAst} from '../../src/ast.js';
 
 import {simplifyUnion} from '../../src/simplify/simplify-union.js';
 
@@ -90,4 +90,33 @@ test('Union with mixed types', t => {
 	};
 
 	t.deepEqual(simplifyUnion(input), expected);
+});
+
+test('Empty union', t => {
+	t.throws(() => {
+		simplifyUnion({
+			type: Types.union,
+			value: new Set(),
+		});
+	});
+});
+
+test('Union with one item', t => {
+	const ast: Ast = {
+		type: Types.union,
+		value: new Set([
+			{
+				type: Types.union,
+				value: new Set([
+					{
+						type: Types.boolean,
+					},
+				]),
+			},
+		]),
+	};
+
+	t.deepEqual<Ast, Ast>(simplifyUnion(ast), {
+		type: Types.boolean,
+	});
 });
