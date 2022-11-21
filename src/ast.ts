@@ -1,20 +1,43 @@
 import type {JsonValue, ReadonlyDeep} from 'type-fest';
 
 export const enum Types {
-	string,
-	number,
+	any,
+	array,
 	boolean,
 	null,
-	array,
+	number,
 	object,
-	any,
-	union,
 	objectValue,
+	string,
+	union,
 }
 
-export type PrimitiveAst = ReadonlyDeep<{
-	type: Types.boolean | Types.number | Types.null | Types.string | Types.any;
+export type AnyAst = ReadonlyDeep<{
+	type: Types.any;
 }>;
+
+export type BooleanAst = ReadonlyDeep<{
+	type: Types.boolean;
+}>;
+
+export type NullAst = ReadonlyDeep<{
+	type: Types.null;
+}>;
+
+export type NumberAst = ReadonlyDeep<{
+	type: Types.number;
+}>;
+
+export type StringAst = ReadonlyDeep<{
+	type: Types.string;
+}>;
+
+export type PrimitiveAst =
+	| AnyAst
+	| BooleanAst
+	| NullAst
+	| NumberAst
+	| StringAst;
 
 export type ArrayAst = ReadonlyDeep<{
 	type: Types.array;

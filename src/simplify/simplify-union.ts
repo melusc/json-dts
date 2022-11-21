@@ -1,9 +1,11 @@
 import {Types, type Ast} from '../ast.js';
+import {isUnion} from '../util.js';
+
 import {makeTraverse} from './traverse.js';
 
 export const simplifyUnion = makeTraverse({
 	union(ast) {
-		if (ast.type !== Types.union) {
+		if (!isUnion(ast)) {
 			return false;
 		}
 
@@ -20,7 +22,7 @@ export const simplifyUnion = makeTraverse({
 		let anyMerged = false;
 
 		for (const item of ast.value) {
-			if (item.type === Types.union) {
+			if (isUnion(item)) {
 				anyMerged = true;
 				for (const unionItem of item.value) {
 					result.add(unionItem);

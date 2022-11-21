@@ -1,4 +1,6 @@
 import {Types, type Ast, type ObjectAst, type ObjectValueAst} from '../ast.js';
+import {isObject} from '../util.js';
+
 import {makeTraverse} from './traverse.js';
 
 function * filterUndefined<T>(...array: Array<T | undefined>): Iterable<T> {
@@ -56,7 +58,7 @@ export const mergeObject = makeTraverse({
 		const mergedObject = new Map<string, ObjectValueAst>();
 
 		for (const item of ast.value) {
-			if (item.type === Types.object) {
+			if (isObject(item)) {
 				mergeInto(mergedObject, item, amountObjectsFound === 0);
 				if (amountObjectsFound === 0) {
 					result.add({
