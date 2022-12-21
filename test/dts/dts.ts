@@ -1,7 +1,7 @@
 import test from 'ava';
 
-import {getName, toDts} from '../src/dts.js';
-import {Types, toAst} from '../src/ast.js';
+import {getName, toDts} from '../../src/dts.js';
+import {Types, toAst} from '../../src/ast.js';
 
 test('No objects', t => {
 	t.is(toDts(toAst(0)), 'type T0 = number;\n');
@@ -34,7 +34,7 @@ type T0 = {
 });
 
 test('Nested object', t => {
-	t.is(
+	t.snapshot(
 		toDts(
 			toAst([
 				{
@@ -51,27 +51,9 @@ test('Nested object', t => {
 				},
 			]),
 		),
-		`
-type C = {
-	a: number;
-};
-
-type D = {
-	c: C;
-};
-
-type T1 = {
-	a: number;
-	b: number[];
-	c: C;
-	d: D;
-};
-
-type T0 = T1[];
-`.trimStart(),
 	);
 
-	t.is(
+	t.snapshot(
 		toDts(
 			toAst({
 				multiWordKey: [
@@ -90,24 +72,6 @@ type T0 = T1[];
 				],
 			}),
 		),
-		`
-type SnakeCase = {
-	snake_case_unmodified: boolean;
-};
-
-type KebabCase = {
-	"kebab-case-unmodified": boolean;
-};
-
-type MultiWordKey = {
-	snake_case: SnakeCase;
-	"kebab-case": KebabCase;
-};
-
-type T0 = {
-	multiWordKey: MultiWordKey[][];
-};
-`.trimStart(),
 	);
 });
 
