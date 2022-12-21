@@ -5,6 +5,7 @@ import {mergeObject} from './merge-object.js';
 import {mergePrimitives} from './merge-primitives.js';
 import {removeAny} from './remove-any.js';
 import {simplifyUnion} from './simplify-union.js';
+import {sortUnion} from './sort.js';
 
 export const simplify = (ast: Ast): Ast => {
 	let anyChanged = false;
@@ -24,6 +25,8 @@ export const simplify = (ast: Ast): Ast => {
 			});
 		}
 	} while (anyChanged);
+
+	ast = sortUnion(ast);
 
 	return ast;
 };

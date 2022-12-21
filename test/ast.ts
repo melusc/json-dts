@@ -44,6 +44,13 @@ test('array', t => {
 			]),
 		},
 	});
+
+	t.deepEqual<Ast, Ast>(toAst([]), {
+		type: Types.array,
+		value: {
+			type: Types.any,
+		},
+	});
 });
 
 test('object', t => {
