@@ -4,9 +4,6 @@
 		"url": "https://github.com/melusc"
 	},
 	"ava": {
-		"environmentVariables": {
-			"NODE_ENV": "AVA_TESTING"
-		},
 		"files": [
 			"test/**/*"
 		],
@@ -24,7 +21,7 @@
 		".": "./dist/src/index.js"
 	},
 	"packageManager": "yarn@3.3.0",
-	"description": "Summarise json as typescript type declaration",
+	"description": "Convert json to typescript dts",
 	"devDependencies": {
 		"@ava/typescript": "^3.0.1",
 		"@lusc/tsconfig": "^2.0.0",
@@ -45,10 +42,11 @@
 		"json",
 		"types",
 		"typescript",
-		"declaration"
+		"declaration",
+		"dts"
 	],
 	"license": "MIT",
-	"name": "@lusc/json-type",
+	"name": "@lusc/json-dts",
 	"repository": "melusc/json-type",
 	"scripts": {
 		"fmt": "prettier -w . && xo --fix",
@@ -56,5 +54,8 @@
 		"build": "tsc"
 	},
 	"type": "module",
-	"version": "0.0.1"
+	"version": "0.0.1",
+	"dependencies": {
+		"camelcase": "^7.0.1"
+	}
 }

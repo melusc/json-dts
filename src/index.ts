@@ -2,19 +2,18 @@ import type {JsonValue} from 'type-fest';
 
 import {toAst, type Ast} from './ast.js';
 import {simplify} from './simplify/index.js';
+import {toDts} from './dts.js';
 
 export * from './ast.js';
 
 export const jsonTypeAst = (input: JsonValue): Ast => {
-	let ast = toAst(input);
-	ast = simplify(ast);
+	const ast = toAst(input);
 
-	return ast;
+	return simplify(ast);
 };
 
 export const jsonType = (input: JsonValue): string => {
 	const ast = jsonTypeAst(input);
 
-	// TODO
-	return String(ast);
+	return toDts(ast);
 };
