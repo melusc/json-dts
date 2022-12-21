@@ -88,6 +88,15 @@ export const toAst = (input: JsonValue): Ast => {
 	}
 
 	if (Array.isArray(input)) {
+		if (input.length === 0) {
+			return {
+				type: Types.array,
+				value: {
+					type: Types.any,
+				},
+			};
+		}
+
 		return {
 			type: Types.array,
 			value: {
