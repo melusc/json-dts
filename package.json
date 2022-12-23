@@ -20,12 +20,12 @@
 	"exports": {
 		".": "./dist/src/index.js"
 	},
-	"packageManager": "yarn@3.3.0",
+	"packageManager": "yarn@3.3.1",
 	"description": "Convert json to typescript dts",
 	"devDependencies": {
 		"@ava/typescript": "^3.0.1",
 		"@lusc/tsconfig": "^2.0.0",
-		"@types/node": "^18.11.15",
+		"@types/node": "^18.11.17",
 		"ava": "^5.1.0",
 		"prettier": "^2.8.1",
 		"type-fest": "^3.4.0",
