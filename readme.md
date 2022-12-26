@@ -1,1 +1,1 @@
-# json-type
+# json-dts
