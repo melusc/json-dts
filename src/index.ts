@@ -12,8 +12,8 @@ export const jsonAst = (input: JsonValue): Ast => {
 	return simplify(ast);
 };
 
-export const jsonDts = (input: JsonValue): string => {
+export const jsonDts = (input: JsonValue, name?: string): string => {
 	const ast = jsonAst(input);
 
-	return toDts(ast);
+	return toDts(ast, name);
 };

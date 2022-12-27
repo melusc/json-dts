@@ -178,7 +178,11 @@ export function getName(
 	return name;
 }
 
-export function toDts(ast: Ast): string {
+export function toDts(ast: Ast, name?: string): string {
+	if (name !== undefined && !/^[a-z_]\w*$/i.test(name)) {
+		throw new Error(`Invalid name "${name}"`);
+	}
+
 	const objects: ObjectType[] = [];
 	const usedNames = new Set<string>();
 
@@ -222,14 +226,20 @@ export function toDts(ast: Ast): string {
 	let stringified: string;
 
 	if (isObject(ast)) {
-		traverse(ast);
+		traverse(ast, name);
 		stringified = objects.map(o => o.toObjectString()).join('\n\n');
 	} else {
-		usedNames.add('T0');
-		const t0 = traverse(ast);
+		if (name) {
+			name = camelCase(name, {pascalCase: true});
+			usedNames.add(name);
+		} else {
+			usedNames.add('T0');
+		}
+
+		const t0 = traverse(ast, name);
 		stringified = [
 			...objects.map(o => o.toObjectString()),
-			`type T0 = ${t0.toString()};`,
+			`type ${name ?? 'T0'} = ${t0.toString()};`,
 		].join('\n\n');
 	}
 
