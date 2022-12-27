@@ -53,7 +53,7 @@
 		"build": "tsc"
 	},
 	"type": "module",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"dependencies": {
 		"camelcase": "^7.0.1",
 		"type-fest": "^3.5.0"
