@@ -13,8 +13,12 @@ import {
 } from './ast.js';
 import {isArray, isObject, isPrimitive, isUnion} from './util.js';
 
+function isValidVariableName(name: string) {
+	return /^[_a-z]\w*$/i.test(name);
+}
+
 function toKey(key: string) {
-	if (/^[_a-z]\w*$/i.test(key)) {
+	if (isValidVariableName(key)) {
 		return key;
 	}
 
@@ -179,7 +183,7 @@ export function getName(
 }
 
 export function toDts(ast: Ast, name?: string): string {
-	if (name !== undefined && !/^[a-z_]\w*$/i.test(name)) {
+	if (name !== undefined && !isValidVariableName(name)) {
 		throw new Error(`Invalid name "${name}"`);
 	}
 
