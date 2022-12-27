@@ -6,14 +6,14 @@ import {toDts} from './dts.js';
 
 export * from './ast.js';
 
-export const jsonTypeAst = (input: JsonValue): Ast => {
+export const jsonAst = (input: JsonValue): Ast => {
 	const ast = toAst(input);
 
 	return simplify(ast);
 };
 
-export const jsonType = (input: JsonValue): string => {
-	const ast = jsonTypeAst(input);
+export const jsonDts = (input: JsonValue): string => {
+	const ast = jsonAst(input);
 
 	return toDts(ast);
 };

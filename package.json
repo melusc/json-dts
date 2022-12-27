@@ -47,7 +47,7 @@
 	],
 	"license": "MIT",
 	"name": "@lusc/json-dts",
-	"repository": "melusc/json-type",
+	"repository": "melusc/json-dts",
 	"scripts": {
 		"fmt": "prettier -w . && xo --fix",
 		"test": "yarn build && ava",
