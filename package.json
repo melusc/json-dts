@@ -56,7 +56,7 @@
 	"version": "1.0.2",
 	"dependencies": {
 		"camelcase": "^7.0.1",
-		"type-fest": "^3.5.0"
+		"type-fest": "^3.5.1"
 	},
 	"publishConfig": {
 		"access": "public"
