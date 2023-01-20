@@ -1,7 +1,7 @@
 import test from 'ava';
 
-import {getName, toDts} from '../../src/dts.js';
 import {Types, toAst} from '../../src/ast.js';
+import {toDts} from '../../src/dts/dts.js';
 
 test('No objects', t => {
 	t.is(toDts(toAst(0)), 'type T0 = number;\n');
@@ -73,16 +73,4 @@ test('Nested object', t => {
 			}),
 		),
 	);
-});
-
-test('getName', t => {
-	const scope = new Set<string>();
-
-	t.is(getName(undefined, scope), 'T0');
-	t.is(getName(undefined, scope), 'T1');
-	t.is(getName(undefined, scope), 'T2');
-
-	t.is(getName('many-words-here', scope), 'ManyWordsHere');
-	t.is(getName('many-words-here', scope), 'ManyWordsHere1');
-	t.is(getName('many-words_here', scope), 'ManyWordsHere2');
 });

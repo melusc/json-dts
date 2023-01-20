@@ -2,7 +2,7 @@ import type {JsonValue} from 'type-fest';
 
 import {toAst, type Ast} from './ast.js';
 import {simplify} from './simplify/index.js';
-import {toDts} from './dts.js';
+import {toDts} from './dts/dts.js';
 
 export * from './ast.js';
 

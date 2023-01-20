@@ -1,6 +1,7 @@
 {
 	"compilerOptions": {
-		"outDir": "dist"
+		"outDir": "dist",
+		"esModuleInterop": true
 	},
 	"extends": "@lusc/tsconfig",
 	"include": ["test/**/*.ts", "src/**/*.ts"]

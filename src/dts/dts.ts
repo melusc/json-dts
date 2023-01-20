@@ -10,8 +10,9 @@ import {
 	type ObjectAst,
 	type StringAst,
 	type UnionAst,
-} from './ast.js';
-import {isArray, isObject, isPrimitive, isUnion} from './util.js';
+} from '../ast.js';
+import {isArray, isObject, isPrimitive, isUnion} from '../util.js';
+import {getVariableName} from './get-variable-name.js';
 
 function isValidVariableName(name: string) {
 	return /^[_a-z]\w*$/i.test(name);
@@ -150,38 +151,6 @@ class UnionType {
 
 type Token = PrimitiveType | ObjectType | ArrayType | UnionType;
 
-export function getName(
-	suggestion: string | undefined,
-	usedNames: Set<string>,
-	n?: number,
-): string {
-	n ??= 0;
-
-	if (suggestion === undefined) {
-		// If no suggestion it becomes "T"
-		// but for "T" it should always have a number at the end
-		const name = `T${n}`;
-
-		if (usedNames.has(name)) {
-			return getName(undefined, usedNames, n + 1);
-		}
-
-		usedNames.add(name);
-		return name;
-	}
-
-	const name = camelCase(`${suggestion}${n === 0 ? '' : n}`, {
-		pascalCase: true,
-	});
-
-	if (usedNames.has(name)) {
-		return getName(suggestion, usedNames, n + 1);
-	}
-
-	usedNames.add(name);
-	return name;
-}
-
 export function toDts(ast: Ast, name?: string): string {
 	if (name !== undefined && !isValidVariableName(name)) {
 		throw new Error(`Invalid name "${name}"`);
@@ -197,7 +166,7 @@ export function toDts(ast: Ast, name?: string): string {
 		}
 
 		const object = new ObjectType(
-			getName(key, usedNames),
+			getVariableName(key, usedNames),
 			new Map(
 				[...ast.value].map(([subKey, {value, optional}]) => [
 					subKey,

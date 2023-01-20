@@ -24,6 +24,15 @@ const mergeInto = (
 		return;
 	}
 
+	for (const [key, value] of target) {
+		if (!object.value.has(key)) {
+			target.set(key, {
+				...value,
+				optional: true,
+			});
+		}
+	}
+
 	for (const [key, value] of object.value) {
 		target.set(key, {
 			type: Types.objectValue,
