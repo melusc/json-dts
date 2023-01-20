@@ -24,10 +24,12 @@
 	"description": "Convert json to typescript dts",
 	"devDependencies": {
 		"@ava/typescript": "^3.0.1",
+		"@fast-check/ava": "^1.1.3",
 		"@lusc/tsconfig": "^2.0.0",
 		"@types/node": "^18.11.18",
 		"ava": "^5.1.1",
 		"prettier": "^2.8.3",
+		"rimraf": "^4.1.1",
 		"typescript": "^4.9.4",
 		"xo": "^0.53.1"
 	},
@@ -50,7 +52,8 @@
 	"scripts": {
 		"fmt": "prettier -w . && xo --fix",
 		"test": "yarn build && ava",
-		"build": "tsc"
+		"build": "yarn clean && tsc",
+		"clean": "rimraf dist"
 	},
 	"type": "module",
 	"version": "1.0.2",
