@@ -62,6 +62,8 @@ export type ObjectAst = ReadonlyDeep<{
 
 export type Ast = PrimitiveAst | ArrayAst | ObjectAst | UnionAst;
 
+const isReadonlyArray = Array.isArray as (arg0: any) => arg0 is readonly any[];
+
 export const toAst = (input: JsonValue): Ast => {
 	if (typeof input === 'string') {
 		return {
@@ -87,7 +89,7 @@ export const toAst = (input: JsonValue): Ast => {
 		};
 	}
 
-	if (Array.isArray(input)) {
+	if (isReadonlyArray(input)) {
 		if (input.length === 0) {
 			return {
 				type: Types.array,
