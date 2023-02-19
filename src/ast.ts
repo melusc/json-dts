@@ -1,4 +1,5 @@
 import type {JsonValue, ReadonlyDeep} from 'type-fest';
+import {createFilter, type Filter, type FilterFunction} from './filter.js';
 
 export const enum Types {
 	any = 'any',
@@ -64,7 +65,11 @@ export type Ast = PrimitiveAst | ArrayAst | ObjectAst | UnionAst;
 
 const isReadonlyArray = Array.isArray as (arg0: any) => arg0 is readonly any[];
 
-export const toAst = (input: JsonValue): Ast => {
+const toAstInternal = (
+	input: JsonValue,
+	path: string[],
+	filter: FilterFunction,
+): Ast => {
 	if (typeof input === 'string') {
 		return {
 			type: Types.string,
@@ -103,7 +108,15 @@ export const toAst = (input: JsonValue): Ast => {
 			type: Types.array,
 			value: {
 				type: Types.union,
-				value: new Set(input.map(v => toAst(v))),
+				value: new Set(
+					input
+						.map((v, index) => ({
+							path: [...path, String(index)],
+							value: v,
+						}))
+						.filter(({path}) => filter(path))
+						.map(({path, value}) => toAstInternal(value, path, filter)),
+				),
 			},
 		};
 	}
@@ -111,10 +124,15 @@ export const toAst = (input: JsonValue): Ast => {
 	const result = new Map<string, ObjectValueAst>();
 
 	for (const key of Object.keys(input)) {
+		const subPath = [...path, key];
+		if (!filter(subPath)) {
+			continue;
+		}
+
 		result.set(key, {
 			type: Types.objectValue,
 			optional: false,
-			value: toAst(input[key]!),
+			value: toAstInternal(input[key]!, subPath, filter),
 		});
 	}
 
@@ -123,3 +141,7 @@ export const toAst = (input: JsonValue): Ast => {
 		value: result,
 	};
 };
+
+export function toAst(input: JsonValue, filter?: Filter) {
+	return toAstInternal(input, [], createFilter(filter));
+}
