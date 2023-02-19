@@ -3,7 +3,7 @@ import {isObject} from '../util.js';
 
 import {makeTraverse} from './traverse.js';
 
-function * filterUndefined<T>(...array: Array<T | undefined>): Iterable<T> {
+function* filterUndefined<T>(...array: Array<T | undefined>): Iterable<T> {
 	for (const item of array) {
 		if (item !== undefined) {
 			yield item;

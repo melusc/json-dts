@@ -54,13 +54,15 @@ Has to be parsed JSON.
 
 #### options.name?
 
-Type: string
+Type: `string`
 
 By default the the root item is called `T0`. This can be used to override that.
 
 #### options.filter?
 
-Type: string[] | (path: string[]) => boolean
+Type: `string[] | (path: string[]) => boolean`
+
+This option can be used to filter entries from the output. Filtered entries will have type `any`.
 
 For each key (including indices of arrays) found in `input`:
 

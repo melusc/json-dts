@@ -109,13 +109,16 @@ const toAstInternal = (
 			value: {
 				type: Types.union,
 				value: new Set(
-					input
-						.map((v, index) => ({
-							path: [...path, String(index)],
-							value: v,
-						}))
-						.filter(({path}) => filter(path))
-						.map(({path, value}) => toAstInternal(value, path, filter)),
+					input.map((value, index) => {
+						const subPath = [...path, String(index)];
+						if (!filter(subPath)) {
+							return {
+								type: Types.any,
+							};
+						}
+
+						return toAstInternal(value, subPath, filter);
+					}),
 				),
 			},
 		};
@@ -126,6 +129,14 @@ const toAstInternal = (
 	for (const key of Object.keys(input)) {
 		const subPath = [...path, key];
 		if (!filter(subPath)) {
+			result.set(key, {
+				type: Types.objectValue,
+				optional: false,
+				value: {
+					type: Types.any,
+				},
+			});
+
 			continue;
 		}
 
