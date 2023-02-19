@@ -6,17 +6,17 @@ test('jsonDts', t => {
 	t.is(jsonDts([true, 0]), 'type T0 = Array<boolean | number>;\n');
 	t.is(jsonDts([0, true]), 'type T0 = Array<boolean | number>;\n');
 	t.snapshot(jsonDts([{x: {y: 1}}]));
-	t.snapshot(jsonDts([{x: {y: 1}}], 'X'));
-	t.snapshot(jsonDts([{x: {y: 1}}], 'Y'));
-	t.snapshot(jsonDts([{x: {y: 1}}], 'T'));
-	t.snapshot(jsonDts([{x: 1}], 't'));
-	t.snapshot(jsonDts({x: 1}, 't'));
-	t.snapshot(jsonDts({t: {t: 1}}, 't'));
+	t.snapshot(jsonDts([{x: {y: 1}}], {name: 'X'}));
+	t.snapshot(jsonDts([{x: {y: 1}}], {name: 'Y'}));
+	t.snapshot(jsonDts([{x: {y: 1}}], {name: 'T'}));
+	t.snapshot(jsonDts([{x: 1}], {name: 't'}));
+	t.snapshot(jsonDts({x: 1}, {name: 't'}));
+	t.snapshot(jsonDts({t: {t: 1}}, {name: 't'}));
 
 	t.throws(() => {
-		jsonDts({}, '1a');
+		jsonDts({}, {name: '1a'});
 	});
 	t.throws(() => {
-		jsonDts({}, '_ü');
+		jsonDts({}, {name: '_ü'});
 	});
 });
