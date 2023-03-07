@@ -3,6 +3,7 @@ import {mkdir, writeFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 
 import {fc, testProp} from '@fast-check/ava';
+import test from 'ava';
 import type {JsonValue} from 'type-fest';
 import ts from 'typescript';
 
@@ -24,39 +25,29 @@ function compile(file: URL): void {
 		...emitResult.diagnostics,
 	];
 
-	for (const diagnostic of allDiagnostics) {
-		if (diagnostic.file) {
-			const {line, character} = ts.getLineAndCharacterOfPosition(
-				diagnostic.file,
-				diagnostic.start!,
-			);
-			const message = ts.flattenDiagnosticMessageText(
-				diagnostic.messageText,
-				'\n',
-			);
-			console.log(
-				`${diagnostic.file.fileName} (${line + 1},${
-					character + 1
-				}): ${message}`,
-			);
-		} else {
-			console.log(
-				ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n'),
-			);
-		}
+	const errors = allDiagnostics.filter(
+		diagnostic =>
+			// Treat warnings as errors since there
+			// shouldn't be any warnings either
+			diagnostic.category === ts.DiagnosticCategory.Error
+			|| diagnostic.category === ts.DiagnosticCategory.Warning,
+	);
+
+	if (errors.length > 0) {
+		const message = ts.formatDiagnosticsWithColorAndContext(errors, {
+			getCurrentDirectory: ts.sys.getCurrentDirectory,
+			getCanonicalFileName: fileName => fileName,
+			getNewLine: () => '\n',
+		});
+
+		throw new Error(message);
 	}
 }
 
 const outDir = new URL('fast-check-out/', import.meta.url);
 await mkdir(outDir);
 
-async function testWithTypescript(input: any, ast: string, prefix: string) {
-	const source = `
-${ast}
-
-const json: T0 = ${JSON.stringify(input, undefined, '\t')};
-`;
-
+async function compileSource(source: string, prefix: string) {
 	// The benefit of this vs fs.mktemp
 	// is here I can work with URLs
 	// and mkdtemp requires a string
@@ -67,6 +58,16 @@ const json: T0 = ${JSON.stringify(input, undefined, '\t')};
 	await writeFile(sourceFilePath, source);
 
 	compile(sourceFilePath);
+}
+
+async function testWithTypescript(input: any, ast: string, prefix: string) {
+	const source = `
+${ast}
+
+const json: T0 = ${JSON.stringify(input, undefined, '\t')};
+`;
+
+	return compileSource(source, prefix);
 }
 
 testProp(
@@ -96,3 +97,9 @@ testProp(
 		numRuns: 15,
 	},
 );
+
+test('compile() should throw on type error', async t => {
+	await t.throwsAsync(async () =>
+		compileSource('const x: string = 0;', 'compile-type-error'),
+	);
+});
