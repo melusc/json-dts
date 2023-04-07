@@ -6,7 +6,7 @@ export function createFilter(filter?: Filter): FilterFunction {
 		return filter;
 	}
 
-	if (typeof filter === 'undefined') {
+	if (filter === undefined) {
 		return () => true;
 	}
 
