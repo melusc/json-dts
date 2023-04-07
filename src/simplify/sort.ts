@@ -1,4 +1,5 @@
 import {type Ast, Types} from '../ast.js';
+
 import {makeTraverse} from './traverse.js';
 
 /*

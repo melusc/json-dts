@@ -1,6 +1,13 @@
 {
 	"rules": {
 		"no-mixed-spaces-and-tabs": "off",
-		"@typescript-eslint/indent": "off"
+		"@typescript-eslint/indent": "off",
+		"import/order": [
+			"error",
+			{
+				"newlines-between": "always",
+				"warnOnUnassignedImports": true
+			}
+		]
 	}
 }

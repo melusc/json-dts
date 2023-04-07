@@ -1,4 +1,5 @@
 import test from 'ava';
+
 import {getVariableName} from '../../src/dts/get-variable-name.js';
 
 test('getName', t => {

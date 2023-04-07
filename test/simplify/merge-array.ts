@@ -1,7 +1,6 @@
 import test from 'ava';
 
 import {toAst, Types, type Ast} from '../../src/ast.js';
-
 import {mergeArray} from '../../src/simplify/merge-array.js';
 
 test('Single array', t => {

@@ -1,6 +1,6 @@
 import test from 'ava';
-import {Types, type Ast, type UnionAst} from '../../src/ast.js';
 
+import {Types, type Ast, type UnionAst} from '../../src/ast.js';
 import {simplifyUnion} from '../../src/simplify/simplify-union.js';
 
 test('Union with unions', t => {

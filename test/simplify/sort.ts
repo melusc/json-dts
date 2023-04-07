@@ -1,7 +1,6 @@
 import test from 'ava';
 
 import {Types, type Ast, type UnionAst} from '../../src/ast.js';
-
 import {sortUnion} from '../../src/simplify/sort.js';
 
 test('Two unions should sort the same', t => {

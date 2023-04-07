@@ -1,4 +1,5 @@
 import test from 'ava';
+
 import {jsonDts} from '../src/index.js';
 
 test('Paths', t => {

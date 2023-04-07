@@ -12,6 +12,7 @@ import {
 	type UnionAst,
 } from '../ast.js';
 import {isArray, isObject, isPrimitive, isUnion} from '../util.js';
+
 import {getVariableName} from './get-variable-name.js';
 
 function isValidVariableName(name: string) {

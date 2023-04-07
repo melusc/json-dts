@@ -1,4 +1,5 @@
 import test from 'ava';
+
 import {toAst, Types, type Ast, type ObjectValueAst} from '../../src/ast.js';
 import {mergeObject} from '../../src/simplify/merge-object.js';
 

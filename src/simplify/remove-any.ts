@@ -1,4 +1,5 @@
 import {Types, type Ast} from '../ast.js';
+
 import {makeTraverse} from './traverse.js';
 
 // If one array is `any[]`, but another is, say, `number[]`

@@ -1,4 +1,5 @@
 import test from 'ava';
+
 import {Types, type Ast} from '../../src/ast.js';
 import {removeAny} from '../../src/simplify/remove-any.js';
 

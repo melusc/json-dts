@@ -1,4 +1,5 @@
 import type {JsonValue, ReadonlyDeep} from 'type-fest';
+
 import {createFilter, type Filter, type FilterFunction} from './filter.js';
 
 export const enum Types {
