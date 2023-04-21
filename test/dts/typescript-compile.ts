@@ -98,6 +98,22 @@ testProp(
 	},
 );
 
+test.failing('toString key incompatibility', async t => {
+	// @ts-expect-error Here these two aren't assignable to each other either
+	const input = [{}, {toString: false}];
+
+	await t.notThrowsAsync(async () =>
+		testWithTypescript(
+			input,
+			// @ts-expect-error TODO: Objects have `toString(): string`
+			// so these two objects are incompatible.
+			// I'm unsure how to fix this right now, though.
+			jsonDts(input),
+			'temp',
+		),
+	);
+});
+
 test('compile() should throw on type error', async t => {
 	await t.throwsAsync(async () =>
 		compileSource('const x: string = 0;', 'compile-type-error'),
