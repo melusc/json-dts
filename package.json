@@ -26,8 +26,8 @@
 		"@ava/typescript": "^4.0.0",
 		"@fast-check/ava": "^1.1.5",
 		"@lusc/tsconfig": "^2.2.0",
-		"@types/node": "^20.2.1",
-		"ava": "^5.2.0",
+		"@types/node": "^20.2.4",
+		"ava": "^5.3.0",
 		"prettier": "^2.8.8",
 		"rimraf": "^5.0.1",
 		"typescript": "^5.0.4",
@@ -59,7 +59,7 @@
 	"version": "3.0.0",
 	"dependencies": {
 		"camelcase": "^7.0.1",
-		"type-fest": "^3.10.0"
+		"type-fest": "^3.11.0"
 	},
 	"publishConfig": {
 		"access": "public"
