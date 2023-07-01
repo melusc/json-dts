@@ -20,7 +20,7 @@
 	"exports": {
 		".": "./dist/src/index.js"
 	},
-	"packageManager": "yarn@3.6.0",
+	"packageManager": "yarn@3.6.1",
 	"description": "Convert json to typescript dts",
 	"devDependencies": {
 		"@ava/typescript": "^4.1.0",
