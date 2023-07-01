@@ -23,7 +23,7 @@
 	"packageManager": "yarn@3.6.0",
 	"description": "Convert json to typescript dts",
 	"devDependencies": {
-		"@ava/typescript": "^4.0.0",
+		"@ava/typescript": "^4.1.0",
 		"@fast-check/ava": "^1.1.5",
 		"@lusc/tsconfig": "^2.3.0",
 		"@types/node": "^20.3.1",
