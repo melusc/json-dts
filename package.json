@@ -25,7 +25,7 @@
 	"devDependencies": {
 		"@ava/typescript": "^4.1.0",
 		"@fast-check/ava": "^1.1.5",
-		"@lusc/tsconfig": "^2.3.0",
+		"@lusc/tsconfig": "^3.0.0",
 		"@types/node": "^20.5.6",
 		"ava": "^5.3.1",
 		"prettier": "^3.0.2",
