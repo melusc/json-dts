@@ -24,9 +24,9 @@
 	"description": "Convert json to typescript dts",
 	"devDependencies": {
 		"@ava/typescript": "^4.1.0",
-		"@fast-check/ava": "^1.1.5",
+		"@fast-check/ava": "^1.1.6",
 		"@lusc/tsconfig": "^3.0.0",
-		"@types/node": "^20.5.8",
+		"@types/node": "^20.5.9",
 		"ava": "^5.3.1",
 		"prettier": "^3.0.3",
 		"rimraf": "^5.0.1",
