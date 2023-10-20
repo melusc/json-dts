@@ -148,12 +148,12 @@ __metadata:
     "@ava/typescript": ^4.1.0
     "@fast-check/ava": ^1.1.6
     "@lusc/tsconfig": ^4.0.0
-    "@types/node": ^20.8.3
+    "@types/node": ^20.8.7
     ava: ^5.3.1
     camelcase: ^8.0.0
     prettier: ^3.0.3
     rimraf: ^5.0.5
-    type-fest: ^4.4.0
+    type-fest: ^4.5.0
     typescript: ^5.2.2
     xo: ^0.56.0
   languageName: unknown
@@ -268,10 +268,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.8.3":
-  version: 20.8.3
-  resolution: "@types/node@npm:20.8.3"
-  checksum: bfb88b341faeb19f8fd37306a3bf433721b876c6491d10fcb0b13fd26601fa36ee45113dd82b1e1c23e3c957dff5b99f81a16493cefa03abe797e41a2487a4f7
+"@types/node@npm:^20.8.7":
+  version: 20.8.7
+  resolution: "@types/node@npm:20.8.7"
+  dependencies:
+    undici-types: ~5.25.1
+  checksum: 2173c0c03daefcb60c03a61b1371b28c8fe412e7a40dc6646458b809d14a85fbc7aeb369d957d57f0aaaafd99964e77436f29b3b579232d8f2b20c58abbd1d25
   languageName: node
   linkType: hard
 
@@ -4969,10 +4971,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^4.4.0":
-  version: 4.4.0
-  resolution: "type-fest@npm:4.4.0"
-  checksum: 0b8ae68c3a87e76ad41a317604b8864ee59dbaad095957ebeea8e95d22d8a269ad6d55fe28e16d645a05a8bdfc633e7f706019d6616a8194ae54cbabb36dec2b
+"type-fest@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "type-fest@npm:4.5.0"
+  checksum: cddc3900f19671e16ec49080e5c06c197d5554a75a1b758ff6d07af1089925ade4bcc9d1af080bd4a4a4fdf973a90ad4a83229203c854a444c511f8a3daeb56d
   languageName: node
   linkType: hard
 
@@ -5023,6 +5025,13 @@ __metadata:
   version: 0.1.2
   resolution: "unc-path-regex@npm:0.1.2"
   checksum: a05fa2006bf4606051c10fc7968f08ce7b28fa646befafa282813aeb1ac1a56f65cb1b577ca7851af2726198d59475bb49b11776036257b843eaacee2860a4ec
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~5.25.1":
+  version: 5.25.3
+  resolution: "undici-types@npm:5.25.3"
+  checksum: ec9d2cc36520cbd9fbe3b3b6c682a87fe5be214699e1f57d1e3d9a2cb5be422e62735f06e0067dc325fd3dd7404c697e4d479f9147dc8a804e049e29f357f2ff
   languageName: node
   linkType: hard
 
