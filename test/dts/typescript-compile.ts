@@ -15,7 +15,8 @@ function compile(file: URL): void {
 	const program = ts.createProgram([fileURLToPath(file)], {
 		strict: true,
 		target: ts.ScriptTarget.ESNext,
-		module: ts.ModuleKind.ESNext,
+		module: ts.ModuleKind.NodeNext,
+		moduleResolution: ts.ModuleResolutionKind.NodeNext,
 		noEmit: true,
 	});
 	const emitResult = program.emit();
