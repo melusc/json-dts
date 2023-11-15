@@ -20,15 +20,15 @@
 	"exports": {
 		".": "./dist/src/index.js"
 	},
-	"packageManager": "yarn@4.0.1",
+	"packageManager": "yarn@4.0.2",
 	"description": "Convert json to typescript dts",
 	"devDependencies": {
 		"@ava/typescript": "^4.1.0",
 		"@fast-check/ava": "^1.1.6",
 		"@lusc/tsconfig": "^4.0.0",
-		"@types/node": "^20.8.9",
+		"@types/node": "^20.9.0",
 		"ava": "^5.3.1",
-		"prettier": "^3.0.3",
+		"prettier": "^3.1.0",
 		"rimraf": "^5.0.5",
 		"typescript": "^5.2.2",
 		"xo": "^0.56.0"
@@ -59,7 +59,7 @@
 	"version": "4.0.0",
 	"dependencies": {
 		"camelcase": "^8.0.0",
-		"type-fest": "^4.6.0"
+		"type-fest": "^4.7.1"
 	},
 	"publishConfig": {
 		"access": "public"
