@@ -26,11 +26,11 @@
 		"@ava/typescript": "^4.1.0",
 		"@fast-check/ava": "^1.2.0",
 		"@lusc/tsconfig": "^4.0.0",
-		"@types/node": "^20.9.4",
-		"ava": "^6.0.0",
+		"@types/node": "^20.10.4",
+		"ava": "^6.0.1",
 		"prettier": "^3.1.0",
 		"rimraf": "^5.0.5",
-		"typescript": "^5.3.2",
+		"typescript": "^5.3.3",
 		"xo": "^0.56.0"
 	},
 	"engines": {
@@ -59,7 +59,7 @@
 	"version": "4.0.0",
 	"dependencies": {
 		"camelcase": "^8.0.0",
-		"type-fest": "^4.8.2"
+		"type-fest": "^4.8.3"
 	},
 	"publishConfig": {
 		"access": "public"
