@@ -92,14 +92,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fast-check/ava@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "@fast-check/ava@npm:1.2.0"
+"@fast-check/ava@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@fast-check/ava@npm:1.2.1"
   dependencies:
     fast-check: "npm:^3.0.0"
   peerDependencies:
-    ava: ">=4.0.0"
-  checksum: fe8d9bdb641064ae99e19ba26b993b2f310c36f325a33adb0fbd461f4b15d085ec362617971dcab477a12e4bfb2538e4cda8677b1584f3a1474d4bced692eb47
+    ava: ^4 || ^5 || ^6
+  checksum: 3800098fd7e8098102544a2f7a595351d063a7ebaeca18ed4901df5ec2679da2330ba8c0db2c820721d4cbb3e23d817ba22fec6d058957930e229f44fa71a684
   languageName: node
   linkType: hard
 
@@ -147,14 +147,14 @@ __metadata:
   resolution: "@lusc/json-dts@workspace:."
   dependencies:
     "@ava/typescript": "npm:^4.1.0"
-    "@fast-check/ava": "npm:^1.2.0"
+    "@fast-check/ava": "npm:^1.2.1"
     "@lusc/tsconfig": "npm:^4.0.0"
-    "@types/node": "npm:^20.10.4"
+    "@types/node": "npm:^20.10.7"
     ava: "npm:^6.0.1"
     camelcase: "npm:^8.0.0"
-    prettier: "npm:^3.1.0"
+    prettier: "npm:^3.1.1"
     rimraf: "npm:^5.0.5"
-    type-fest: "npm:^4.8.3"
+    type-fest: "npm:^4.9.0"
     typescript: "npm:^5.3.3"
     xo: "npm:^0.56.0"
   languageName: unknown
@@ -282,12 +282,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.10.4":
-  version: 20.10.4
-  resolution: "@types/node@npm:20.10.4"
+"@types/node@npm:^20.10.7":
+  version: 20.10.7
+  resolution: "@types/node@npm:20.10.7"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 2c8b70cba731eb2ae3ae046daa74903bfcbb0e7b9196da767e5895054f6d252296ae7a04fb1dbbcb53bb004c4c658c05eaea2731bc9e2dd9e08f7e88d672f563
+  checksum: d626cea1b7da4784ee7b335dcc54e64adba9725dab7ca51a690167de502ef89fec07b05ad8e25845d188d7ad7f72c192ec92964d456321ed5b9452113bf9351f
   languageName: node
   linkType: hard
 
@@ -3787,12 +3787,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.0.0, prettier@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "prettier@npm:3.1.0"
+"prettier@npm:^3.0.0, prettier@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "prettier@npm:3.1.1"
   bin:
     prettier: bin/prettier.cjs
-  checksum: a45ea70aa97fde162ea4c4aba3dfc7859aa6a732a1db34458d9535dc3c2c16d3bc3fb5689e6cd76aa835562555303b02d9449fd2e15af3b73c8053557e25c5b6
+  checksum: facc944ba20e194ff4db765e830ffbcb642803381f0d2033ed397e79904fa4ccc877dc25ad68f42d36985c01d051c990ca1b905fb83d2d7d65fe69e4386fa1a3
   languageName: node
   linkType: hard
 
@@ -4595,10 +4595,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"type-fest@npm:^4.8.3":
-  version: 4.8.3
-  resolution: "type-fest@npm:4.8.3"
-  checksum: 978edf5d00651e944b8c4d50f765a4cc09126e7fb90b46ed157265012e2f8aeb178c0ca493a175213ffa1705a795e4b5579c2ef4bc27bdd3462cdceccbf386f7
+"type-fest@npm:^4.9.0":
+  version: 4.9.0
+  resolution: "type-fest@npm:4.9.0"
+  checksum: 7e6423f7337928a7323ce8a68cfbbaf30ecb70b9c635207899e58297d219c71be4a8c50b52afb9fe09c9f44b2c4276d0a44bb95acabab7bc942455f980aad267
   languageName: node
   linkType: hard
 
