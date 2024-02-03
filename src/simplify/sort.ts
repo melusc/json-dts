@@ -24,10 +24,11 @@ const typesOrder = {
 	[Types.union]: 7,
 } as const;
 
-const compare = (a: Ast, b: Ast): number =>
-	typesOrder[a.type] - typesOrder[b.type];
+function compare(a: Ast, b: Ast): number {
+	return typesOrder[a.type] - typesOrder[b.type];
+}
 
-const isSorted = (array: Ast[]): boolean => {
+function isSorted(array: Ast[]): boolean {
 	for (let i = 0; i < array.length - 1; ++i) {
 		if (compare(array[i]!, array[i + 1]!) > 0) {
 			return false;
@@ -35,7 +36,7 @@ const isSorted = (array: Ast[]): boolean => {
 	}
 
 	return true;
-};
+}
 
 export const sortUnion = makeTraverse({
 	union(ast) {

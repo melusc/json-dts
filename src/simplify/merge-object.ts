@@ -11,11 +11,11 @@ function * filterUndefined<T>(...array: Array<T | undefined>): Iterable<T> {
 	}
 }
 
-const mergeInto = (
+function mergeInto(
 	target: Map<string, ObjectValueAst>,
 	object: ObjectAst,
 	isFirst: boolean,
-): void => {
+): void {
 	if (isFirst) {
 		for (const [key, value] of object.value) {
 			target.set(key, value);
@@ -43,7 +43,7 @@ const mergeInto = (
 			},
 		});
 	}
-};
+}
 
 /**
 Merge objects in unions

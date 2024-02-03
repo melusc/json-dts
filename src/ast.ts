@@ -66,11 +66,11 @@ export type Ast = PrimitiveAst | ArrayAst | ObjectAst | UnionAst;
 
 const isReadonlyArray = Array.isArray as (arg0: any) => arg0 is readonly any[];
 
-const toAstInternal = (
+function toAstInternal(
 	input: JsonValue,
 	path: string[],
 	filter: FilterFunction,
-): Ast => {
+): Ast {
 	if (typeof input === 'string') {
 		return {
 			type: Types.string,
@@ -152,7 +152,7 @@ const toAstInternal = (
 		type: Types.object,
 		value: result,
 	};
-};
+}
 
 export function toAst(input: JsonValue, filter?: Filter) {
 	return toAstInternal(input, [], createFilter(filter));

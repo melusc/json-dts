@@ -7,17 +7,17 @@ import {
 } from '../ast.js';
 import {isArray, isObject, isPrimitive, isUnion} from '../util.js';
 
-const typescriptExpectValue = <Expected>(_actual: Expected) => {
+function typescriptExpectValue<Expected>(_actual: Expected) {
 	/* Nothing */
-};
+}
 
 type TraversalCallback = {
 	union?: (ast: UnionAst) => false | Ast;
 	object?: (ast: ObjectAst) => false | Ast;
 };
 
-export const makeTraverse = (cb: TraversalCallback) => {
-	const traversalFunction = (ast: Ast, onChange: () => void): Ast => {
+export function makeTraverse(cb: TraversalCallback) {
+	function traversalFunction(ast: Ast, onChange: () => void): Ast {
 		if (isUnion(ast)) {
 			const modified = cb.union?.(ast) ?? false;
 			if (modified !== false) {
@@ -69,9 +69,9 @@ export const makeTraverse = (cb: TraversalCallback) => {
 			type: Types.object,
 			value: result,
 		};
-	};
+	}
 
 	return (ast: Ast, onChange?: () => void) =>
 		// eslint-disable-next-line @typescript-eslint/no-empty-function
 		traversalFunction(ast, onChange ?? (() => {}));
-};
+}

@@ -7,7 +7,7 @@ import {removeAny} from './remove-any.js';
 import {simplifyUnion} from './simplify-union.js';
 import {sortUnion} from './sort.js';
 
-export const simplify = (ast: Ast): Ast => {
+export function simplify(ast: Ast): Ast {
 	let anyChanged = false;
 	do {
 		anyChanged = false;
@@ -29,4 +29,4 @@ export const simplify = (ast: Ast): Ast => {
 	ast = sortUnion(ast);
 
 	return ast;
-};
+}

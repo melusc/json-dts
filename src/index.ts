@@ -12,17 +12,14 @@ type Options = {
 	filter: Filter;
 };
 
-export const jsonAst = (input: JsonValue, options?: Partial<Options>): Ast => {
+export function jsonAst(input: JsonValue, options?: Partial<Options>): Ast {
 	const ast = toAst(input, options?.filter);
 
 	return simplify(ast);
-};
+}
 
-export const jsonDts = (
-	input: JsonValue,
-	options?: Partial<Options>,
-): string => {
+export function jsonDts(input: JsonValue, options?: Partial<Options>): string {
 	const ast = jsonAst(input, options);
 
 	return toDts(ast, options?.name);
-};
+}
