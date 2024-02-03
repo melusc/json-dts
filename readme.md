@@ -34,7 +34,7 @@ type T0 = {
 };
 */
 
-jsonDts({key: true}, 'data');
+jsonDts({key: true}, {name: 'data'});
 /*
 type Data = {
 	key: boolean
