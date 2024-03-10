@@ -12,7 +12,7 @@ export function simplify(ast: Ast): Ast {
 	do {
 		anyChanged = false;
 
-		for (const fn of [
+		for (const function_ of [
 			mergePrimitives,
 			mergeObject,
 			simplifyUnion,
@@ -20,7 +20,7 @@ export function simplify(ast: Ast): Ast {
 			removeAny,
 		]) {
 			// eslint-disable-next-line @typescript-eslint/no-loop-func
-			ast = fn(ast, () => {
+			ast = function_(ast, () => {
 				anyChanged ||= true;
 			});
 		}

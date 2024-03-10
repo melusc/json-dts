@@ -5,7 +5,9 @@ import {
 	type ObjectValueAst,
 	type UnionAst,
 } from '../ast.js';
-import {isArray, isObject, isPrimitive, isUnion} from '../util.js';
+import {
+isArray, isObject, isPrimitive, isUnion,
+} from '../util.js';
 
 function typescriptExpectValue<Expected>(_actual: Expected) {
 	/* Nothing */
@@ -16,16 +18,16 @@ type TraversalCallback = {
 	object?: (ast: ObjectAst) => false | Ast;
 };
 
-export function makeTraverse(cb: TraversalCallback) {
+export function makeTraverse(callback: TraversalCallback) {
 	function traversalFunction(ast: Ast, onChange: () => void): Ast {
 		if (isUnion(ast)) {
-			const modified = cb.union?.(ast) ?? false;
+			const modified = callback.union?.(ast) ?? false;
 			if (modified !== false) {
 				onChange();
 				return traversalFunction(modified, onChange);
 			}
 		} else if (isObject(ast)) {
-			const modified = cb.object?.(ast) ?? false;
+			const modified = callback.object?.(ast) ?? false;
 			if (modified !== false) {
 				onChange();
 				return traversalFunction(modified, onChange);

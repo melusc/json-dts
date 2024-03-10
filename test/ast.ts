@@ -1,6 +1,8 @@
 import test from 'ava';
 
-import {toAst, Types, type Ast, type ObjectValueAst} from '../src/ast.js';
+import {
+toAst, Types, type Ast, type ObjectValueAst,
+} from '../src/ast.js';
 
 test('number', t => {
 	t.deepEqual<Ast, Ast>(toAst(2), {
