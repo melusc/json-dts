@@ -45,17 +45,20 @@ function compile(file: URL): void {
 	}
 }
 
-const outDir = new URL('fast-check-out/', import.meta.url);
-await mkdir(outDir);
+const outDirectory = new URL('fast-check-out/', import.meta.url);
+await mkdir(outDirectory);
 
 async function compileSource(source: string, prefix: string) {
 	// The benefit of this vs fs.mktemp
 	// is here I can work with URLs
 	// and mkdtemp requires a string
-	const dir = new URL(`${prefix}-${randomBytes(4).toString('hex')}/`, outDir);
-	await mkdir(dir);
+	const directory = new URL(
+		`${prefix}-${randomBytes(4).toString('hex')}/`,
+		outDirectory,
+	);
+	await mkdir(directory);
 
-	const sourceFilePath = new URL('file.ts', dir);
+	const sourceFilePath = new URL('file.ts', directory);
 	await writeFile(sourceFilePath, source);
 
 	compile(sourceFilePath);
@@ -74,11 +77,15 @@ const json: T0 = ${JSON.stringify(input, undefined, '\t')};
 testProp(
 	'object',
 	[fc.dictionary(fc.string(), fc.jsonValue())],
-	async (t, dict) => {
+	async (t, dictionary) => {
 		t.timeout(100_000);
 
 		await t.notThrowsAsync(async () =>
-			testWithTypescript(dict, jsonDts(dict as JsonValue), 'object'),
+			testWithTypescript(
+				dictionary,
+				jsonDts(dictionary as JsonValue),
+				'object',
+			),
 		);
 	},
 	{

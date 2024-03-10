@@ -64,7 +64,9 @@ export type ObjectAst = ReadonlyDeep<{
 
 export type Ast = PrimitiveAst | ArrayAst | ObjectAst | UnionAst;
 
-const isReadonlyArray = Array.isArray as (arg0: any) => arg0 is readonly any[];
+const isReadonlyArray = Array.isArray as (
+	argument0: any,
+) => argument0 is readonly any[];
 
 function toAstInternal(
 	input: JsonValue,
