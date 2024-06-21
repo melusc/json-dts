@@ -26,7 +26,9 @@ export function makeTraverse(callback: TraversalCallback) {
 				onChange();
 				return traversalFunction(modified, onChange);
 			}
-		} else if (isObject(ast)) {
+		}
+
+		if (isObject(ast)) {
 			const modified = callback.object?.(ast) ?? false;
 			if (modified !== false) {
 				onChange();

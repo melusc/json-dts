@@ -1,4 +1,4 @@
-import type {JsonValue, ReadonlyDeep} from 'type-fest';
+import type {JsonValue} from 'type-fest';
 
 import {createFilter, type Filter, type FilterFunction} from './filter.js';
 
@@ -14,25 +14,25 @@ export const enum Types {
 	union = 'union',
 }
 
-export type AnyAst = ReadonlyDeep<{
-	type: Types.any;
-}>;
+export type AnyAst = {
+	readonly type: Types.any;
+};
 
-export type BooleanAst = ReadonlyDeep<{
-	type: Types.boolean;
-}>;
+export type BooleanAst = {
+	readonly type: Types.boolean;
+};
 
-export type NullAst = ReadonlyDeep<{
-	type: Types.null;
-}>;
+export type NullAst = {
+	readonly type: Types.null;
+};
 
-export type NumberAst = ReadonlyDeep<{
-	type: Types.number;
-}>;
+export type NumberAst = {
+	readonly type: Types.number;
+};
 
-export type StringAst = ReadonlyDeep<{
-	type: Types.string;
-}>;
+export type StringAst = {
+	readonly type: Types.string;
+};
 
 export type PrimitiveAst =
 	| AnyAst
@@ -41,26 +41,26 @@ export type PrimitiveAst =
 	| NumberAst
 	| StringAst;
 
-export type ArrayAst = ReadonlyDeep<{
-	type: Types.array;
-	value: Ast;
-}>;
+export type ArrayAst = {
+	readonly type: Types.array;
+	readonly value: Ast;
+};
 
-export type UnionAst = ReadonlyDeep<{
-	type: Types.union;
-	value: Set<Ast>;
-}>;
+export type UnionAst = {
+	readonly type: Types.union;
+	readonly value: ReadonlySet<Ast>;
+};
 
-export type ObjectValueAst = ReadonlyDeep<{
-	type: Types.objectValue;
-	optional: boolean;
-	value: Ast;
-}>;
+export type ObjectValueAst = {
+	readonly type: Types.objectValue;
+	readonly optional: boolean;
+	readonly value: Ast;
+};
 
-export type ObjectAst = ReadonlyDeep<{
-	type: Types.object;
-	value: Map<string, ObjectValueAst>;
-}>;
+export type ObjectAst = {
+	readonly type: Types.object;
+	readonly value: ReadonlyMap<string, ObjectValueAst>;
+};
 
 export type Ast = PrimitiveAst | ArrayAst | ObjectAst | UnionAst;
 
