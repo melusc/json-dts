@@ -1,7 +1,3 @@
 {
-	"compilerOptions": {
-		"outDir": "dist"
-	},
-	"extends": "@lusc/tsconfig",
-	"include": ["test/**/*.ts", "src/**/*.ts"]
+	"extends": "@lusc/tsconfig"
 }
