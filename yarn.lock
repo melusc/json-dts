@@ -109,14 +109,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@fast-check/ava@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "@fast-check/ava@npm:1.2.1"
+"@fast-check/ava@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@fast-check/ava@npm:2.0.0"
   dependencies:
     fast-check: "npm:^3.0.0"
   peerDependencies:
     ava: ^4 || ^5 || ^6
-  checksum: 10c0/3800098fd7e8098102544a2f7a595351d063a7ebaeca18ed4901df5ec2679da2330ba8c0db2c820721d4cbb3e23d817ba22fec6d058957930e229f44fa71a684
+  checksum: 10c0/f7e540255629573554885981cf5dbe1ad1d2293d70859127d79a1e801e0991248e488b1119aecce1831350c8c379f99631dbd5a1dc7c7fd3dadd4b228e997b5f
   languageName: node
   linkType: hard
 
@@ -164,7 +164,7 @@ __metadata:
   resolution: "@lusc/json-dts@workspace:."
   dependencies:
     "@ava/typescript": "npm:^5.0.0"
-    "@fast-check/ava": "npm:^1.2.1"
+    "@fast-check/ava": "npm:^2.0.0"
     "@lusc/tsconfig": "npm:^5.1.0"
     "@types/node": "npm:^20.14.12"
     ava: "npm:^6.1.3"
