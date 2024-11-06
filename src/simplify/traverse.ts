@@ -5,10 +5,9 @@ import {
 	type ObjectValueAst,
 	type UnionAst,
 } from '../ast.js';
-import {
-isArray, isObject, isPrimitive, isUnion,
-} from '../util.js';
+import {isArray, isObject, isPrimitive, isUnion} from '../util.js';
 
+// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-parameters
 function typescriptExpectValue<Expected>(_actual: Expected) {
 	/* Nothing */
 }
@@ -18,10 +17,10 @@ type TraversalCallback = {
 	object?: (ast: ObjectAst) => false | Ast;
 };
 
-export function makeTraverse(callback: TraversalCallback) {
+export function makeTraverse(traversers: TraversalCallback) {
 	function traversalFunction(ast: Ast, onChange: () => void): Ast {
 		if (isUnion(ast)) {
-			const modified = callback.union?.(ast) ?? false;
+			const modified = traversers.union?.(ast) ?? false;
 			if (modified !== false) {
 				onChange();
 				return traversalFunction(modified, onChange);
@@ -29,7 +28,7 @@ export function makeTraverse(callback: TraversalCallback) {
 		}
 
 		if (isObject(ast)) {
-			const modified = callback.object?.(ast) ?? false;
+			const modified = traversers.object?.(ast) ?? false;
 			if (modified !== false) {
 				onChange();
 				return traversalFunction(modified, onChange);
@@ -76,6 +75,5 @@ export function makeTraverse(callback: TraversalCallback) {
 	}
 
 	return (ast: Ast, onChange?: () => void) =>
-		// eslint-disable-next-line @typescript-eslint/no-empty-function
 		traversalFunction(ast, onChange ?? (() => {}));
 }
