@@ -30,8 +30,8 @@ function compile(file: URL): void {
 		diagnostic =>
 			// Treat warnings as errors since there
 			// shouldn't be any warnings either
-			diagnostic.category === ts.DiagnosticCategory.Error
-			|| diagnostic.category === ts.DiagnosticCategory.Warning,
+			diagnostic.category === ts.DiagnosticCategory.Error ||
+			diagnostic.category === ts.DiagnosticCategory.Warning,
 	);
 
 	if (errors.length > 0) {
@@ -64,7 +64,7 @@ async function compileSource(source: string, prefix: string) {
 	compile(sourceFilePath);
 }
 
-async function testWithTypescript(input: any, ast: string, prefix: string) {
+async function testWithTypescript(input: unknown, ast: string, prefix: string) {
 	const source = `
 ${ast}
 

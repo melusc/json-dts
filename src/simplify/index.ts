@@ -19,11 +19,11 @@ export function simplify(ast: Ast): Ast {
 			mergeArray,
 			removeAny,
 		]) {
-			// eslint-disable-next-line @typescript-eslint/no-loop-func
 			ast = function_(ast, () => {
 				anyChanged ||= true;
 			});
 		}
+		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 	} while (anyChanged);
 
 	ast = sortUnion(ast);

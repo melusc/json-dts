@@ -65,8 +65,8 @@ export type ObjectAst = {
 export type Ast = PrimitiveAst | ArrayAst | ObjectAst | UnionAst;
 
 const isReadonlyArray = Array.isArray as (
-	argument0: any,
-) => argument0 is readonly any[];
+	argument0: unknown,
+) => argument0 is readonly unknown[];
 
 function toAstInternal(
 	input: JsonValue,

@@ -29,8 +29,8 @@ function compare(a: Ast, b: Ast): number {
 }
 
 function isSorted(array: Ast[]): boolean {
-	for (let i = 0; i < array.length - 1; ++i) {
-		if (compare(array[i]!, array[i + 1]!) > 0) {
+	for (let index = 0; index < array.length - 1; ++index) {
+		if (compare(array[index]!, array[index + 1]!) > 0) {
 			return false;
 		}
 	}

@@ -11,9 +11,7 @@ import {
 	type StringAst,
 	type UnionAst,
 } from '../ast.js';
-import {
-isArray, isObject, isPrimitive, isUnion,
-} from '../util.js';
+import {isArray, isObject, isPrimitive, isUnion} from '../util.js';
 
 import {getVariableName} from './get-variable-name.js';
 
@@ -52,7 +50,7 @@ export function isAstEqual(ast1: Ast, ast2: Ast): boolean {
 		const items1 = [...ast1.value];
 		const items2 = [...ast2_.value];
 
-		return items1.every((item, i) => isAstEqual(item, items2[i]!));
+		return items1.every((item, index) => isAstEqual(item, items2[index]!));
 	}
 
 	const ast2_ = ast2 as ObjectAst;

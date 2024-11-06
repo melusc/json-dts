@@ -59,9 +59,7 @@ test('Nested object', t => {
 				multiWordKey: [
 					[
 						{
-							// eslint-disable-next-line @typescript-eslint/naming-convention
 							snake_case: {
-								// eslint-disable-next-line @typescript-eslint/naming-convention
 								snake_case_unmodified: true,
 							},
 							'kebab-case': {
