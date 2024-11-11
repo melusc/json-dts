@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {fc, testProp} from '@fast-check/ava';
 import test from 'ava';
 import type {JsonValue} from 'type-fest';
-import ts from 'typescript';
+import * as ts from 'typescript';
 
 import {jsonDts} from '../../src/index.js';
 
