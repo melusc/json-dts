@@ -25,7 +25,7 @@
 	"devDependencies": {
 		"@ava/typescript": "^5.0.0",
 		"@fast-check/ava": "^2.0.1",
-		"@lusc/eslint-config": "^1.0.1",
+		"@lusc/eslint-config": "^2.0.4",
 		"@lusc/tsconfig": "^5.1.0",
 		"@types/node": "^22.8.5",
 		"ava": "^6.2.0",
