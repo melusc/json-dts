@@ -8,7 +8,7 @@ export function getVariableName(
 	n ??= 0;
 
 	// Replace characters that can't be in a variable with `_`
-	suggestion = suggestion?.replace(/\W/gi, '_').trim();
+	suggestion = suggestion?.replace(/\W/g, '_').trim();
 
 	if (suggestion === undefined) {
 		// If no suggestion it becomes "T"
