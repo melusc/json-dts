@@ -25,11 +25,11 @@
 	"devDependencies": {
 		"@ava/typescript": "^5.0.0",
 		"@fast-check/ava": "^2.0.1",
-		"@lusc/eslint-config": "^3.0.0",
+		"@lusc/eslint-config": "^3.1.1",
 		"@lusc/tsconfig": "^5.1.0",
-		"@types/node": "^22.8.5",
+		"@types/node": "^22.9.1",
 		"ava": "^6.2.0",
-		"eslint": "^9.14.0",
+		"eslint": "^9.15.0",
 		"prettier": "^3.3.3",
 		"rimraf": "^6.0.1",
 		"typescript": "^5.6.3"
@@ -60,7 +60,7 @@
 	"version": "4.1.1",
 	"dependencies": {
 		"camelcase": "^8.0.0",
-		"type-fest": "^4.26.1"
+		"type-fest": "^4.27.0"
 	},
 	"publishConfig": {
 		"access": "public"
