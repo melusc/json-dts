@@ -20,17 +20,17 @@
 	"exports": {
 		".": "./dist/src/index.js"
 	},
-	"packageManager": "yarn@4.5.2",
+	"packageManager": "yarn@4.5.3",
 	"description": "Convert json to typescript dts",
 	"devDependencies": {
 		"@ava/typescript": "^5.0.0",
 		"@fast-check/ava": "^2.0.1",
 		"@lusc/eslint-config": "^3.2.0",
 		"@lusc/tsconfig": "^5.1.0",
-		"@types/node": "^22.9.1",
+		"@types/node": "^22.10.1",
 		"ava": "^6.2.0",
-		"eslint": "^9.15.0",
-		"prettier": "^3.3.3",
+		"eslint": "^9.16.0",
+		"prettier": "^3.4.1",
 		"rimraf": "^6.0.1",
 		"typescript": "^5.7.2"
 	},
@@ -60,7 +60,7 @@
 	"version": "4.1.1",
 	"dependencies": {
 		"camelcase": "^8.0.0",
-		"type-fest": "^4.27.0"
+		"type-fest": "^4.29.0"
 	},
 	"publishConfig": {
 		"access": "public"
