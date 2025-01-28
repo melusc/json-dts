@@ -4,10 +4,10 @@ import {fileURLToPath} from 'node:url';
 
 import {fc, testProp} from '@fast-check/ava';
 import test from 'ava';
-import type {JsonValue} from 'type-fest';
 import * as ts from 'typescript';
 
 import {jsonDts} from '../../src/index.js';
+import type {JsonValue} from '../../src/json-value.js';
 
 // Taken and adapted from
 // <https://github.com/microsoft/TypeScript/wiki/Using-the-Compiler-API#a-minimal-compiler>

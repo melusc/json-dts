@@ -1,8 +1,7 @@
-import type {JsonValue} from 'type-fest';
-
 import {toAst, type Ast} from './ast.js';
 import {toDts} from './dts/dts.js';
 import {type Filter} from './filter.js';
+import type {JsonValue} from './json-value.js';
 import {simplify} from './simplify/index.js';
 
 export * from './ast.js';

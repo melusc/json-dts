@@ -1,6 +1,5 @@
-import type {JsonValue} from 'type-fest';
-
 import {createFilter, type Filter, type FilterFunction} from './filter.js';
+import type {JsonValue} from './json-value.js';
 
 export const enum Types {
 	any = 'any',
