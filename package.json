@@ -57,7 +57,7 @@
 		"clean": "rimraf dist"
 	},
 	"type": "module",
-	"version": "4.2.0",
+	"version": "4.2.1",
 	"dependencies": {
 		"camelcase": "^8.0.0"
 	},
