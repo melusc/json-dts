@@ -143,14 +143,7 @@ test.failing('toString key incompatibility', async t => {
 	const input = [{}, {toString: false}];
 
 	await t.notThrowsAsync(async () =>
-		testWithTypescript(
-			input,
-			// @ts-expect-error TODO: Objects have `toString(): string`
-			// so these two objects are incompatible.
-			// I'm unsure how to fix this right now, though.
-			jsonDts(input),
-			'temp',
-		),
+		testWithTypescript(input, jsonDts(input), 'temp'),
 	);
 });
 
