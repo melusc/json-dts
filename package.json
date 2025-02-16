@@ -25,6 +25,7 @@
 	"devDependencies": {
 		"@ava/typescript": "^5.0.0",
 		"@fast-check/ava": "^2.0.1",
+		"@lusc/clean-package": "^1.0.0",
 		"@lusc/eslint-config": "^4.0.0",
 		"@lusc/tsconfig": "^6.0.2",
 		"@types/node": "^22.10.7",
@@ -49,7 +50,10 @@
 	],
 	"license": "MIT",
 	"name": "@lusc/json-dts",
-	"repository": "melusc/json-dts",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/melusc/json-dts"
+	},
 	"scripts": {
 		"fmt": "prettier -w . && eslint --fix",
 		"test": "yarn build && ava",
@@ -60,8 +64,5 @@
 	"version": "4.2.1",
 	"dependencies": {
 		"camelcase": "^8.0.0"
-	},
-	"publishConfig": {
-		"access": "public"
 	}
 }

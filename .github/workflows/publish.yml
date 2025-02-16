@@ -19,6 +19,7 @@ jobs:
       - run: corepack enable
       - run: yarn install --immutable
       - run: yarn build
-      - run: npm publish --provenance
+      - run: yarn clean-package -- ava packageManager devDependencies scripts
+      - run: npm publish --provenance --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
