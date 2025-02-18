@@ -1,5 +1,5 @@
 import {Types, type Ast} from '../ast.js';
-import {isUnion} from '../util.js';
+import {isUnion} from '../utilities.js';
 
 import {makeTraverse} from './traverse.js';
 

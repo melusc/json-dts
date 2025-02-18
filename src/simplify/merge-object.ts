@@ -1,5 +1,5 @@
 import {Types, type Ast, type ObjectAst, type ObjectValueAst} from '../ast.js';
-import {isObject} from '../util.js';
+import {isObject} from '../utilities.js';
 
 import {makeTraverse} from './traverse.js';
 

@@ -11,7 +11,7 @@ import {
 	type StringAst,
 	type UnionAst,
 } from '../ast.js';
-import {isArray, isObject, isPrimitive, isUnion} from '../util.js';
+import {isArray, isObject, isPrimitive, isUnion} from '../utilities.js';
 
 import {getVariableName} from './get-variable-name.js';
 

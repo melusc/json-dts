@@ -46,6 +46,7 @@ function compile(file: URL): void {
 }
 
 const outDirectory = new URL('fast-check-out/', import.meta.url);
+// eslint-disable-next-line security/detect-non-literal-fs-filename
 await mkdir(outDirectory);
 
 async function compileSource(source: string, prefix: string) {
@@ -56,9 +57,11 @@ async function compileSource(source: string, prefix: string) {
 		`${prefix}-${randomBytes(4).toString('hex')}/`,
 		outDirectory,
 	);
+	// eslint-disable-next-line security/detect-non-literal-fs-filename
 	await mkdir(directory);
 
 	const sourceFilePath = new URL('file.ts', directory);
+	// eslint-disable-next-line security/detect-non-literal-fs-filename
 	await writeFile(sourceFilePath, source);
 
 	compile(sourceFilePath);
