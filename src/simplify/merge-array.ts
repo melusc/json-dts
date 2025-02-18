@@ -1,5 +1,5 @@
 import {type Ast, Types} from '../ast.js';
-import {isArray} from '../util.js';
+import {isArray} from '../utilities.js';
 
 import {makeTraverse} from './traverse.js';
 

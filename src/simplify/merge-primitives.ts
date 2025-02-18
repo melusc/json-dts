@@ -1,5 +1,5 @@
 import {Types, type Ast, type PrimitiveAst} from '../ast.js';
-import {isPrimitive} from '../util.js';
+import {isPrimitive} from '../utilities.js';
 
 import {makeTraverse} from './traverse.js';
 

@@ -5,7 +5,7 @@ import {
 	type ObjectValueAst,
 	type UnionAst,
 } from '../ast.js';
-import {isArray, isObject, isPrimitive, isUnion} from '../util.js';
+import {isArray, isObject, isPrimitive, isUnion} from '../utilities.js';
 
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-parameters
 function typescriptExpectValue<Expected>(_actual: Expected) {
