@@ -71,41 +71,41 @@ For each key (including indices of arrays) found in `input`:
 
 ```ts
 jsonDts(
-	{
-		a: 1,
-		b: 'b',
-	},
-	{
-		filter: ['a'],
-	},
+  {
+    a: 1,
+    b: 'b',
+  },
+  {
+    filter: ['a'],
+  },
 );
 // returns
 type T0 = {
-	a: any;
-	b: string;
+  a: any;
+  b: string;
 };
 
 jsonDts(
-	{
-		a: {
-			b: 'b',
-			c: 1,
-		},
-	},
-	{
-		filter(path: string[]) {
-			// Filter *.b
-			return path?.[1] !== 'b';
-		},
-	},
+  {
+    a: {
+      b: 'b',
+      c: 1,
+    },
+  },
+  {
+    filter(path: string[]) {
+      // Filter *.b
+      return path?.[1] !== 'b';
+    },
+  },
 );
 // returns
 type A = {
-	b: any;
-	c: number;
+  b: any;
+  c: number;
 };
 
 type T0 = {
-	a: A;
+  a: A;
 };
 ```

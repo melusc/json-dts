@@ -2,5 +2,14 @@
 	"arrowParens": "avoid",
 	"bracketSpacing": false,
 	"singleQuote": true,
-	"useTabs": true
+	"useTabs": true,
+	"overrides": [
+		{
+			"files": ["readme.md"],
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2
+			}
+		}
+	]
 }
