@@ -1,6 +1,6 @@
 # @lusc/json-dts
 
-Convert JSON to TypeScript definitions.
+Convert JSON to TypeScript definitions (.d.ts).
 
 ## Install
 
@@ -81,6 +81,7 @@ jsonDts(
 );
 // returns
 type T0 = {
+	a: any;
 	b: string;
 };
 
@@ -100,6 +101,7 @@ jsonDts(
 );
 // returns
 type A = {
+	b: any;
 	c: number;
 };
 
