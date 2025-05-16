@@ -28,9 +28,9 @@
 		"@lusc/clean-package": "^2.1.1",
 		"@lusc/eslint-config": "^7.2.0",
 		"@lusc/tsconfig": "^7.0.0",
-		"@types/node": "^22.15.3",
+		"@types/node": "^22.15.18",
 		"ava": "^6.3.0",
-		"eslint": "^9.26.0",
+		"eslint": "^9.27.0",
 		"prettier": "^3.5.3",
 		"rimraf": "^6.0.1",
 		"typescript": "^5.8.3"
