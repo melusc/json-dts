@@ -20,20 +20,20 @@
 	"exports": {
 		".": "./dist/src/index.js"
 	},
-	"packageManager": "yarn@4.9.1",
+	"packageManager": "yarn@4.9.3",
 	"description": "Convert json to typescript dts",
 	"devDependencies": {
 		"@ava/typescript": "^6.0.0",
 		"@fast-check/ava": "^2.0.2",
-		"@lusc/clean-package": "^2.1.1",
-		"@lusc/eslint-config": "^7.2.0",
-		"@lusc/tsconfig": "^7.0.0",
-		"@types/node": "^22.15.3",
-		"ava": "^6.3.0",
-		"eslint": "^9.26.0",
-		"prettier": "^3.5.3",
+		"@lusc/clean-package": "^2.2.0",
+		"@lusc/eslint-config": "^7.4.2",
+		"@lusc/tsconfig": "^7.1.0",
+		"@types/node": "^22.17.2",
+		"ava": "^6.4.1",
+		"eslint": "^9.33.0",
+		"prettier": "^3.6.2",
 		"rimraf": "^6.0.1",
-		"typescript": "^5.8.3"
+		"typescript": "^5.9.2"
 	},
 	"engines": {
 		"node": "^20.19.1 || ^22.15.0 || ^23.11.0 || ^24.6.0"
