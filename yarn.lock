@@ -220,16 +220,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@lusc/clean-package@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "@lusc/clean-package@npm:2.1.1"
+"@lusc/clean-package@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@lusc/clean-package@npm:2.2.0"
   bin:
     clean-package: dist/cli.js
-  checksum: 10c0/73cb81899dd5970812c58d5618482924c52c0ad8543c5aa9b204a238a1eb1103e171be28a3678556a1cd92fe1779bcdf3162c75e038fd3f737d7ed969a50b8ff
+  checksum: 10c0/5066cd5c15552a4e298f1e3b73b822b05c63a0e83989279a0ba18ead110d9537a37ade2ae4ff3133506db2cd3dfd8e462b3070353ba29f99d75287c634075111
   languageName: node
   linkType: hard
 
-"@lusc/eslint-config@npm:^7.2.0":
+"@lusc/eslint-config@npm:^7.4.2":
   version: 7.4.2
   resolution: "@lusc/eslint-config@npm:7.4.2"
   dependencies:
@@ -258,23 +258,23 @@ __metadata:
   dependencies:
     "@ava/typescript": "npm:^6.0.0"
     "@fast-check/ava": "npm:^2.0.2"
-    "@lusc/clean-package": "npm:^2.1.1"
-    "@lusc/eslint-config": "npm:^7.2.0"
-    "@lusc/tsconfig": "npm:^7.0.0"
-    "@types/node": "npm:^22.15.3"
-    ava: "npm:^6.3.0"
+    "@lusc/clean-package": "npm:^2.2.0"
+    "@lusc/eslint-config": "npm:^7.4.2"
+    "@lusc/tsconfig": "npm:^7.1.0"
+    "@types/node": "npm:^22.17.2"
+    ava: "npm:^6.4.1"
     camelcase: "npm:^8.0.0"
-    eslint: "npm:^9.26.0"
-    prettier: "npm:^3.5.3"
+    eslint: "npm:^9.33.0"
+    prettier: "npm:^3.6.2"
     rimraf: "npm:^6.0.1"
-    typescript: "npm:^5.8.3"
+    typescript: "npm:^5.9.2"
   languageName: unknown
   linkType: soft
 
-"@lusc/tsconfig@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "@lusc/tsconfig@npm:7.0.0"
-  checksum: 10c0/1ae8c028bcc5fdd6a62c752d464607096d59490c7055f8b90c19b6a374323f0adc5a5e2d55d34f313ea8f2bf3d965fd10bce72a72447a90253182ed35347e713
+"@lusc/tsconfig@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "@lusc/tsconfig@npm:7.1.0"
+  checksum: 10c0/f2f0f95edc5b55e47cf1f08465d2dfd4135ca21f51c3e46fa75f795dd5cb0e0a528f948727f6de33ba59d01d7e945257b1ffb7e7552fea83cfa4429579d7b0c7
   languageName: node
   linkType: hard
 
@@ -400,7 +400,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^22.15.3":
+"@types/node@npm:^22.17.2":
   version: 22.17.2
   resolution: "@types/node@npm:22.17.2"
   dependencies:
@@ -839,7 +839,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ava@npm:^6.3.0":
+"ava@npm:^6.4.1":
   version: 6.4.1
   resolution: "ava@npm:6.4.1"
   dependencies:
@@ -1509,7 +1509,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9.26.0":
+"eslint@npm:^9.33.0":
   version: 9.33.0
   resolution: "eslint@npm:9.33.0"
   dependencies:
@@ -2618,7 +2618,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^3.5.3":
+"prettier@npm:^3.6.2":
   version: 3.6.2
   resolution: "prettier@npm:3.6.2"
   bin:
@@ -3076,7 +3076,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:^5.8.3, typescript@npm:^5.9.2":
+"typescript@npm:^5.9.2":
   version: 5.9.2
   resolution: "typescript@npm:5.9.2"
   bin:
@@ -3086,7 +3086,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@npm%3A^5.8.3#optional!builtin<compat/typescript>, typescript@patch:typescript@npm%3A^5.9.2#optional!builtin<compat/typescript>":
+"typescript@patch:typescript@npm%3A^5.9.2#optional!builtin<compat/typescript>":
   version: 5.9.2
   resolution: "typescript@patch:typescript@npm%3A5.9.2#optional!builtin<compat/typescript>::version=5.9.2&hash=5786d5"
   bin:
