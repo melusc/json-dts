@@ -34,7 +34,7 @@ importers:
         specifier: ^6.4.1
         version: 6.4.1(@ava/typescript@6.0.0)
       eslint:
-        specifier: ^9.33.0
+        specifier: ^9.35.0
         version: 9.35.0
       prettier:
         specifier: ^3.6.2
