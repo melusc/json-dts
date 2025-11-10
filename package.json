@@ -63,6 +63,6 @@
 	"type": "module",
 	"version": "6.1.0",
 	"dependencies": {
-		"camelcase": "^8.0.0"
+		"camelcase": "^9.0.0"
 	}
 }
