@@ -13,9 +13,9 @@ test('getName', t => {
 	t.is(getVariableName('many-words-here', scope), 'ManyWordsHere1');
 	t.is(getVariableName('many-words_here', scope), 'ManyWordsHere2');
 
-	t.is(getVariableName('?QPf3<', scope), 'QPf3');
-	t.is(getVariableName('?QPf3<', scope), 'QPf31');
-	t.is(getVariableName('?QPf3<', scope), 'QPf32');
+	t.is(getVariableName('?QPf3<', scope), '_Qpf3');
+	t.is(getVariableName('?QPf3<', scope), '_Qpf31');
+	t.is(getVariableName('?QPf3<', scope), '_Qpf32');
 
 	t.is(getVariableName('Vvp`Cii', scope), 'VvpCii');
 
