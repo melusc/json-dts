@@ -20,18 +20,18 @@
 	"exports": {
 		".": "./dist/src/index.js"
 	},
-	"packageManager": "pnpm@10.28.0+sha512.05df71d1421f21399e053fde567cea34d446fa02c76571441bfc1c7956e98e363088982d940465fd34480d4d90a0668bc12362f8aa88000a64e83d0b0e47be48",
+	"packageManager": "pnpm@10.29.3+sha512.498e1fb4cca5aa06c1dcf2611e6fafc50972ffe7189998c409e90de74566444298ffe43e6cd2acdc775ba1aa7cc5e092a8b7054c811ba8c5770f84693d33d2dc",
 	"description": "Convert json to typescript dts",
 	"devDependencies": {
 		"@ava/typescript": "^6.0.0",
 		"@fast-check/ava": "^2.0.2",
 		"@lusc/clean-package": "^3.0.0",
-		"@lusc/eslint-config": "^8.5.0",
+		"@lusc/eslint-config": "^8.6.0",
 		"@lusc/tsconfig": "^7.2.0",
-		"@types/node": "^24.10.9",
+		"@types/node": "^24.10.13",
 		"ava": "^6.4.1",
 		"eslint": "^9.39.2",
-		"prettier": "^3.8.0",
+		"prettier": "^3.8.1",
 		"rimraf": "^6.1.2",
 		"typescript": "^5.9.3"
 	},
