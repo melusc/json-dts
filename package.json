@@ -26,7 +26,7 @@
 		"@ava/typescript": "^6.0.0",
 		"@fast-check/ava": "^2.0.2",
 		"@lusc/clean-package": "^3.0.0",
-		"@lusc/eslint-config": "^8.5.0",
+		"@lusc/eslint-config": "^9.0.0",
 		"@lusc/tsconfig": "^7.2.0",
 		"@types/node": "^24.10.9",
 		"ava": "^6.4.1",
