@@ -28,13 +28,13 @@ importers:
         specifier: ^7.2.0
         version: 7.2.0
       '@types/node':
-        specifier: ^24.10.13
+        specifier: ^24.11.0
         version: 24.11.0
       ava:
         specifier: ^7.0.0
         version: 7.0.0(@ava/typescript@6.0.0)
       eslint:
-        specifier: ^10.0.1
+        specifier: ^10.0.2
         version: 10.0.2
       prettier:
         specifier: ^3.8.1
