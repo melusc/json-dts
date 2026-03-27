@@ -1,3 +1,7 @@
 {
-	"extends": "@lusc/tsconfig"
+	"extends": "@lusc/tsconfig",
+	"compilerOptions": {
+		"types": ["node"],
+		"rootDir": "."
+	}
 }
