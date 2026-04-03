@@ -3,31 +3,31 @@ import test from 'ava';
 import {toAst, Types, type Ast, type ObjectValueAst} from '../src/ast.js';
 
 test('number', t => {
-	t.deepEqual<Ast, Ast>(toAst(2), {
+	t.deepEqual(toAst(2), {
 		type: Types.number,
 	});
 });
 
 test('null', t => {
-	t.deepEqual<Ast, Ast>(toAst(null), {
+	t.deepEqual(toAst(null), {
 		type: Types.null,
 	});
 });
 
 test('boolean', t => {
-	t.deepEqual<Ast, Ast>(toAst(true), {
+	t.deepEqual(toAst(true), {
 		type: Types.boolean,
 	});
 });
 
 test('string', t => {
-	t.deepEqual<Ast, Ast>(toAst('abc'), {
+	t.deepEqual(toAst('abc'), {
 		type: Types.string,
 	});
 });
 
 test('array', t => {
-	t.deepEqual<Ast, Ast>(toAst([1, 2, 3]), {
+	t.deepEqual(toAst([1, 2, 3]), {
 		type: Types.array,
 		value: {
 			type: Types.union,
@@ -45,7 +45,7 @@ test('array', t => {
 		},
 	});
 
-	t.deepEqual<Ast, Ast>(toAst([]), {
+	t.deepEqual(toAst([]), {
 		type: Types.array,
 		value: {
 			type: Types.any,
@@ -54,7 +54,7 @@ test('array', t => {
 });
 
 test('object', t => {
-	t.deepEqual<Ast, Ast>(
+	t.deepEqual(
 		toAst({
 			a: true,
 			b: 0,
@@ -98,7 +98,7 @@ test('object', t => {
 });
 
 test('mixed', t => {
-	t.deepEqual<Ast, Ast>(
+	t.deepEqual(
 		toAst({
 			a: true,
 			b: [

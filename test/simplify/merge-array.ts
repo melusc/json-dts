@@ -1,12 +1,12 @@
 import test from 'ava';
 
-import {toAst, Types, type Ast} from '../../src/ast.js';
+import {toAst, Types} from '../../src/ast.js';
 import {mergeArray} from '../../src/simplify/merge-array.js';
 
 test('Single array', t => {
 	const ast = toAst([[0, true]]);
 
-	t.deepEqual<Ast, Ast>(mergeArray(ast), {
+	t.deepEqual(mergeArray(ast), {
 		type: Types.array,
 		value: {
 			type: Types.union,
@@ -33,7 +33,7 @@ test('Single array', t => {
 test('Multiple arrays', t => {
 	const ast = toAst(['abc', [0], true, [1], [true, null]]);
 
-	t.deepEqual<Ast, Ast>(mergeArray(ast), {
+	t.deepEqual(mergeArray(ast), {
 		type: Types.array,
 		value: {
 			type: Types.union,

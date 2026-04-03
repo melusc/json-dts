@@ -1,6 +1,6 @@
 import test from 'ava';
 
-import {Types, type Ast, type UnionAst} from '../../src/ast.js';
+import {Types, type UnionAst} from '../../src/ast.js';
 import {sortUnion} from '../../src/simplify/sort.js';
 
 test('Two unions should sort the same', t => {
@@ -53,5 +53,5 @@ test('Two unions should sort the same', t => {
 		]),
 	};
 
-	t.deepEqual<Ast, Ast>(sortUnion(union1), sortUnion(union2));
+	t.deepEqual(sortUnion(union1), sortUnion(union2));
 });

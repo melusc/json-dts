@@ -123,7 +123,7 @@ test('Union with one item', t => {
 		]),
 	};
 
-	t.deepEqual<Ast, Ast>(simplifyUnion(ast), {
+	t.deepEqual(simplifyUnion(ast), {
 		type: Types.boolean,
 	});
 });
