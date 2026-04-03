@@ -1,12 +1,12 @@
 import test from 'ava';
 
-import {Types, type Ast} from '../../src/ast.js';
+import {Types} from '../../src/ast.js';
 import {removeAny} from '../../src/simplify/remove-any.js';
 
 test('removeAny', t => {
 	t.plan(2);
 
-	t.deepEqual<Ast, Ast>(
+	t.deepEqual(
 		removeAny(
 			{
 				type: Types.union,

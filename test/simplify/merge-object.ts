@@ -13,7 +13,7 @@ test('Single object', t => {
 		true,
 	]);
 
-	t.deepEqual<Ast, Ast>(mergeObject(ast), {
+	t.deepEqual(mergeObject(ast), {
 		type: Types.array,
 		value: {
 			type: Types.union,
@@ -72,7 +72,7 @@ test('Multiple objects with same keys and types', t => {
 		0,
 	]);
 
-	t.deepEqual<Ast, Ast>(mergeObject(ast), {
+	t.deepEqual(mergeObject(ast), {
 		type: Types.array,
 		value: {
 			type: Types.union,
@@ -164,7 +164,7 @@ test('Objects with optional keys', t => {
 		},
 	]);
 
-	t.deepEqual<Ast, Ast>(mergeObject(ast), {
+	t.deepEqual(mergeObject(ast), {
 		type: Types.array,
 		value: {
 			type: Types.union,
@@ -275,7 +275,7 @@ test('Objects with initially optional keys', t => {
 		]),
 	};
 
-	t.deepEqual<Ast, Ast>(mergeObject(ast), {
+	t.deepEqual(mergeObject(ast), {
 		type: Types.union,
 		value: new Set([
 			{
