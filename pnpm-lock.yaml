@@ -13,11 +13,11 @@ importers:
         version: 9.0.0
     devDependencies:
       '@ava/typescript':
-        specifier: ^6.0.0
-        version: 6.0.0
+        specifier: ^7.0.0
+        version: 7.0.0
       '@fast-check/ava':
         specifier: ^3.0.0
-        version: 3.0.0(ava@7.0.0(@ava/typescript@6.0.0))
+        version: 3.0.0(ava@7.0.0(@ava/typescript@7.0.0))
       '@lusc/clean-package':
         specifier: ^3.0.0
         version: 3.0.0
@@ -32,7 +32,7 @@ importers:
         version: 24.11.0
       ava:
         specifier: ^7.0.0
-        version: 7.0.0(@ava/typescript@6.0.0)
+        version: 7.0.0(@ava/typescript@7.0.0)
       eslint:
         specifier: ^10.0.1
         version: 10.0.2
@@ -48,9 +48,9 @@ importers:
 
 packages:
 
-  '@ava/typescript@6.0.0':
-    resolution: {integrity: sha512-+8oDYc4J5cCaWZh1VUbyc+cegGplJO9FqHpqR4LVAVx8fRLVRaYlC4yyA6cqHJ1vWP23Ff/ECS5U68Zz6OLZlg==}
-    engines: {node: ^20.8 || ^22 || >=24}
+  '@ava/typescript@7.0.0':
+    resolution: {integrity: sha512-0ktzq4/9ya2QoAuVWzl3McpLV9W//Tj+oMonQ4ucgm5l6tQ46aaju/rJL9kzeY5MkG6wzXvFt/MmaLqf9uNC9w==}
+    engines: {node: ^22.20 || ^24.12 || >=25}
 
   '@babel/helper-validator-identifier@7.28.5':
     resolution: {integrity: sha512-qSs4ifwzKJSV39ucNjsvc6WVHs6b7S03sOh2OcHF9UHfVPqWWALUsNUVzhSBiItjRZoLHx7nIarVjqKVusUZ1Q==}
@@ -1371,7 +1371,7 @@ packages:
 
 snapshots:
 
-  '@ava/typescript@6.0.0':
+  '@ava/typescript@7.0.0':
     dependencies:
       escape-string-regexp: 5.0.0
       execa: 9.6.1
@@ -1434,9 +1434,9 @@ snapshots:
       '@eslint/core': 1.1.0
       levn: 0.4.1
 
-  '@fast-check/ava@3.0.0(ava@7.0.0(@ava/typescript@6.0.0))':
+  '@fast-check/ava@3.0.0(ava@7.0.0(@ava/typescript@7.0.0))':
     dependencies:
-      ava: 7.0.0(@ava/typescript@6.0.0)
+      ava: 7.0.0(@ava/typescript@7.0.0)
       fast-check: 4.5.3
 
   '@humanfs/core@0.19.1': {}
@@ -1748,7 +1748,7 @@ snapshots:
 
   async-sema@3.1.1: {}
 
-  ava@7.0.0(@ava/typescript@6.0.0):
+  ava@7.0.0(@ava/typescript@7.0.0):
     dependencies:
       '@vercel/nft': 1.3.2
       acorn: 8.16.0
@@ -1790,7 +1790,7 @@ snapshots:
       write-file-atomic: 7.0.1
       yargs: 18.0.0
     optionalDependencies:
-      '@ava/typescript': 6.0.0
+      '@ava/typescript': 7.0.0
     transitivePeerDependencies:
       - encoding
       - rollup
