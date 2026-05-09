@@ -1,2 +1,4 @@
-onlyBuiltDependencies:
-  - unrs-resolver
+allowBuilds:
+  unrs-resolver: false
+
+trustPolicy: no-downgrade
