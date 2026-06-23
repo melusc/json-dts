@@ -81,10 +81,8 @@ test('Filtering with function', t => {
 				},
 			},
 			{
-				filter(paths) {
-					// Limit to depth 3 (root is not listed in array)
-					return paths.length < 3;
-				},
+				// Limit to depth 3 (root is not listed in array)
+				filter: paths => paths.length < 3,
 			},
 		),
 	);

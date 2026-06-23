@@ -34,12 +34,14 @@ function mergeInto(
 	}
 
 	for (const [key, value] of object.value) {
+		const targetValue = target.get(key);
+
 		target.set(key, {
 			type: Types.objectValue,
-			optional: !target.has(key) || target.get(key)!.optional || value.optional,
+			optional: !target.has(key) || targetValue!.optional || value.optional,
 			value: {
 				type: Types.union,
-				value: new Set(filterUndefined(target.get(key)?.value, value.value)),
+				value: new Set(filterUndefined(targetValue?.value, value.value)),
 			},
 		});
 	}

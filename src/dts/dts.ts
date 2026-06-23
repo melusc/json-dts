@@ -28,54 +28,55 @@ function toKey(key: string) {
 }
 
 export function isAstEqual(ast1: Ast, ast2: Ast): boolean {
-	if (ast1.type !== ast2.type) {
-		return false;
-	}
+	while (ast1.type === ast2.type) {
+		if (isPrimitive(ast1)) {
+			return true;
+		}
 
-	if (isPrimitive(ast1)) {
-		return true;
-	}
+		if (isArray(ast1)) {
+			ast1 = ast1.value;
+			ast2 = (ast2 as ArrayAst).value;
+			continue;
+		}
 
-	// ^
-	if (isArray(ast1)) {
-		return isAstEqual(ast1.value, (ast2 as ArrayAst).value);
-	}
+		if (isUnion(ast1)) {
+			const ast2_ = ast2 as UnionAst;
+			if (ast1.value.size !== ast2_.value.size) {
+				return false;
+			}
 
-	if (isUnion(ast1)) {
-		const ast2_ = ast2 as UnionAst;
+			const items1 = [...ast1.value];
+			const items2 = [...ast2_.value];
+
+			return items1.every((item, index) => isAstEqual(item, items2[index]!));
+		}
+
+		const ast2_ = ast2 as ObjectAst;
+
 		if (ast1.value.size !== ast2_.value.size) {
 			return false;
 		}
 
-		const items1 = [...ast1.value];
-		const items2 = [...ast2_.value];
+		for (const [key, value1] of ast1.value) {
+			if (!ast2_.value.has(key)) {
+				return false;
+			}
 
-		return items1.every((item, index) => isAstEqual(item, items2[index]!));
-	}
+			const value2 = ast2_.value.get(key)!;
 
-	const ast2_ = ast2 as ObjectAst;
+			if (value1.optional !== value2.optional) {
+				return false;
+			}
 
-	if (ast1.value.size !== ast2_.value.size) {
-		return false;
-	}
-
-	for (const [key, value1] of ast1.value) {
-		if (!ast2_.value.has(key)) {
-			return false;
+			if (!isAstEqual(value1.value, value2.value)) {
+				return false;
+			}
 		}
 
-		const value2 = ast2_.value.get(key)!;
-
-		if (value1.optional !== value2.optional) {
-			return false;
-		}
-
-		if (!isAstEqual(value1.value, value2.value)) {
-			return false;
-		}
+		return true;
 	}
 
-	return true;
+	return false;
 }
 
 enum Types {
