@@ -8,12 +8,12 @@ export const mergePrimitives = makeTraverse({
 		const found = new Set<PrimitiveAst['type']>();
 
 		const result = new Set<Ast>();
-		let anyFiltered = false;
+		let didFilter = false;
 
 		for (const item of ast.value) {
 			if (isPrimitive(item)) {
 				if (found.has(item.type)) {
-					anyFiltered = true;
+					didFilter = true;
 				} else {
 					result.add(item);
 					found.add(item.type);
@@ -23,7 +23,7 @@ export const mergePrimitives = makeTraverse({
 			}
 		}
 
-		if (!anyFiltered) {
+		if (!didFilter) {
 			return false;
 		}
 

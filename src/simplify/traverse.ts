@@ -19,16 +19,16 @@ type TraversalCallback = {
 
 export function makeTraverse(traversers: TraversalCallback) {
 	function traversalFunction(ast: Ast, onChange: () => void): Ast {
-		let modified: boolean;
+		let didModify: boolean;
 
 		do {
-			modified = false;
+			didModify = false;
 
 			if (isUnion(ast)) {
 				const newAst = traversers.union?.(ast) ?? false;
 				if (newAst !== false) {
 					onChange();
-					modified = true;
+					didModify = true;
 					ast = newAst;
 				}
 			}
@@ -37,11 +37,11 @@ export function makeTraverse(traversers: TraversalCallback) {
 				const newAst = traversers.object?.(ast) ?? false;
 				if (newAst !== false) {
 					onChange();
-					modified = true;
+					didModify = true;
 					ast = newAst;
 				}
 			}
-		} while (modified);
+		} while (didModify);
 
 		if (isPrimitive(ast)) {
 			return ast;
