@@ -8,9 +8,9 @@ import {simplifyUnion} from './simplify-union.js';
 import {sortUnion} from './sort.js';
 
 export function simplify(ast: Ast): Ast {
-	let anyChanged = false;
+	let didAnyChange = false;
 	do {
-		anyChanged = false;
+		didAnyChange = false;
 
 		for (const function_ of [
 			mergePrimitives,
@@ -20,11 +20,11 @@ export function simplify(ast: Ast): Ast {
 			removeAny,
 		]) {
 			ast = function_(ast, () => {
-				anyChanged ||= true;
+				didAnyChange ||= true;
 			});
 		}
 		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-	} while (anyChanged);
+	} while (didAnyChange);
 
 	ast = sortUnion(ast);
 

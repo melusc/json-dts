@@ -15,11 +15,11 @@ export const simplifyUnion = makeTraverse({
 
 		const result = new Set<Ast>();
 
-		let anyMerged = false;
+		let didMerge = false;
 
 		for (const item of ast.value) {
 			if (isUnion(item)) {
-				anyMerged = true;
+				didMerge = true;
 				for (const unionItem of item.value) {
 					result.add(unionItem);
 				}
@@ -28,7 +28,7 @@ export const simplifyUnion = makeTraverse({
 			}
 		}
 
-		if (!anyMerged) {
+		if (!didMerge) {
 			return false;
 		}
 
