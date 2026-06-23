@@ -128,7 +128,7 @@ function toAstInternal(
 
 	const result = new Map<string, ObjectValueAst>();
 
-	for (const key of Object.keys(input)) {
+	for (const [key, value] of Object.entries(input)) {
 		const subPath = [...path, key];
 		if (!filter(subPath)) {
 			result.set(key, {
@@ -145,7 +145,7 @@ function toAstInternal(
 		result.set(key, {
 			type: Types.objectValue,
 			optional: false,
-			value: toAstInternal(input[key]!, subPath, filter),
+			value: toAstInternal(value, subPath, filter),
 		});
 	}
 
