@@ -34,11 +34,7 @@ export type StringAst = {
 };
 
 export type PrimitiveAst =
-	| AnyAst
-	| BooleanAst
-	| NullAst
-	| NumberAst
-	| StringAst;
+	AnyAst | BooleanAst | NullAst | NumberAst | StringAst;
 
 export type ArrayAst = {
 	readonly type: Types.array;
