@@ -14,7 +14,7 @@ jobs:
       - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
       - uses: pnpm/setup@5d160c5bc68a09337ad0d5654e237e03253b5879 # v1.0.0
         with:
-          runtime: node@v26.3.1
+          runtime: node@v26.5.0
       - run: pnpm build
       - name: Ensure clean working tree
         run: git --no-pager diff --exit-code
