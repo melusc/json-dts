@@ -48,7 +48,7 @@
 		"declaration",
 		"dts"
 	],
-	"license": "MIT",
+	"license": "GPL-3.0-or-later",
 	"name": "@lusc/json-dts",
 	"repository": {
 		"type": "git",
