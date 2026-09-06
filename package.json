@@ -20,7 +20,7 @@
 	"exports": {
 		".": "./dist/src/index.js"
 	},
-	"packageManager": "pnpm@11.9.0",
+	"packageManager": "pnpm@12.3.1",
 	"description": "Convert json to typescript dts",
 	"devDependencies": {
 		"@ava/typescript": "^7.0.0",
