@@ -27,7 +27,7 @@ import {isArray, isObject, isPrimitive, isUnion} from '../utilities.js';
 
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-parameters
 function typescriptExpectValue<Expected>(_actual: Expected) {
-	/* Nothing */
+	// Compile-time only
 }
 
 type TraversalCallback = {
