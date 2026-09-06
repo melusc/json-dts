@@ -21,10 +21,8 @@ import camelcase from 'camelcase';
 export function getVariableName(
 	suggestion: string | undefined,
 	usedNames: Set<string>,
-	n?: number,
+	n: number = 0,
 ): string {
-	n ??= 0;
-
 	// Replace characters that can't be in a variable with `_`
 	suggestion = suggestion?.replaceAll(/\W/g, '_').trim();
 
