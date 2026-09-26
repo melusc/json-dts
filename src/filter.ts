@@ -31,6 +31,6 @@ export function createFilter(filter?: Filter): FilterFunction {
 	const filterSet = new Set(filter);
 
 	return function (path: string[]) {
-		return path.length === 0 ? false : !filterSet.has(path.at(-1)!);
+		return path.length > 0 && !filterSet.has(path.at(-1)!);
 	};
 }
