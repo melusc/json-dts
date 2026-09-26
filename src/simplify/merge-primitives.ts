@@ -41,11 +41,11 @@ export const mergePrimitives = makeTraverse({
 			}
 		}
 
-		return didFilter
-			? {
-					type: Types.union,
-					value: result,
-				}
-			: false;
+		return (
+			didFilter && {
+				type: Types.union,
+				value: result,
+			}
+		);
 	},
 });

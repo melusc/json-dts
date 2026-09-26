@@ -32,11 +32,11 @@ export const removeAny = makeTraverse({
 			}
 		}
 
-		return filtered.size === ast.value.size
-			? false
-			: {
-					type: Types.union,
-					value: filtered,
-				};
+		return (
+			filtered.size < ast.value.size && {
+				type: Types.union,
+				value: filtered,
+			}
+		);
 	},
 });
