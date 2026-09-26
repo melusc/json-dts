@@ -180,8 +180,8 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
       '@lusc/eslint-config':
-        specifier: ^19.0.0
-        version: 19.0.0(@typescript-eslint/utils@8.64.0(eslint@10.11.0)(typescript@6.0.3))(eslint@10.11.0)
+        specifier: ^20.0.0
+        version: 20.0.0(@typescript-eslint/utils@8.64.0(eslint@10.11.0)(typescript@6.0.3))(eslint@10.11.0)
       '@lusc/tsconfig':
         specifier: ^7.2.1
         version: 7.2.1
@@ -317,11 +317,11 @@ packages:
     engines: {node: ^24.18.0 || ^25.9.0 || ^26.5.0}
     hasBin: true
 
-  '@lusc/eslint-config@19.0.0':
-    resolution: {integrity: sha512-uxQqCcrR5WeMASxQYylFfVXpCeFqyFs99p7PMNiTrF3Xi+LymVnBxGCZCZikPytKycaMquhpRrx5UbliAqRAxw==}
+  '@lusc/eslint-config@20.0.0':
+    resolution: {integrity: sha512-0SnJnuZU8OeP4xXWBz9DBzMJlhVCkIwUK/Hu1zo2nzoJ4MuGQFUw/dH4mYiotBsmY24Zg9ZnH6fhgC6lMYrElg==}
     engines: {node: ^24.10.0 || ^25.0.0 || ^26.0.0}
     peerDependencies:
-      eslint: ^10.10.0
+      eslint: ^10.11.0
 
   '@lusc/tsconfig@7.2.1':
     resolution: {integrity: sha512-BckyzQRTbjPoeL9wRTc8hnHwCl4u8F0Z27dhcm7LtktB3DuPhUX3XIgr3syfXxDl3mT6/y6YpjesG4MIG86rAA==}
@@ -895,14 +895,14 @@ packages:
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0 || ^10.0.0
 
-  eslint-plugin-regexp@3.3.0:
-    resolution: {integrity: sha512-TT0JTQbW7CRKohntpGAsMdQ1K3MsmJK4gdAhKJtIwlJ0JvuYxauymFgJdvqxIY4lqNj0EuRZWVrymQtEdJYEFg==}
+  eslint-plugin-regexp@3.3.1:
+    resolution: {integrity: sha512-58bGUci/AaWAo1ETj6Lsnmy6QXwnSyVONRA805828nnqp7vrTwdaQMc02vtowmYB3A5OB3SLr3r5HgmfxX4dLg==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
     peerDependencies:
       eslint: '>=9.38.0'
 
-  eslint-plugin-unicorn@75.0.0:
-    resolution: {integrity: sha512-72I7eSn+/z5CpgValFBl9mp2JE5UPD+nUUyB/VIGUMF1rCP1i37mA05zfIAVIU312A+qCZ38T8tSZr3oaMv4Mw==}
+  eslint-plugin-unicorn@76.0.0:
+    resolution: {integrity: sha512-3ywJrCMHKYhcBP5yFzGaOOX3dY7+iR3hvpuoS/0EnhRFgVWLejly+t4fOdJvWQxJdHZl1C+QBW7hybXPDld4Pw==}
     engines: {node: '>=22'}
     peerDependencies:
       eslint: '>=10.4'
@@ -1736,7 +1736,7 @@ snapshots:
 
   '@lusc/clean-package@4.0.0': {}
 
-  '@lusc/eslint-config@19.0.0(@typescript-eslint/utils@8.64.0(eslint@10.11.0)(typescript@6.0.3))(eslint@10.11.0)':
+  '@lusc/eslint-config@20.0.0(@typescript-eslint/utils@8.64.0(eslint@10.11.0)(typescript@6.0.3))(eslint@10.11.0)':
     dependencies:
       '@eslint-community/eslint-plugin-eslint-comments': 4.8.1(eslint@10.11.0)
       '@eslint/js': 10.0.1(eslint@10.11.0)
@@ -1747,8 +1747,8 @@ snapshots:
       eslint-plugin-import-x: 4.17.1(@typescript-eslint/utils@8.64.0(eslint@10.11.0)(typescript@6.0.3))(eslint@10.11.0)
       eslint-plugin-n: 18.3.0(eslint@10.11.0)(typescript@6.0.3)
       eslint-plugin-promise: 7.3.0(eslint@10.11.0)
-      eslint-plugin-regexp: 3.3.0(eslint@10.11.0)
-      eslint-plugin-unicorn: 75.0.0(eslint@10.11.0)
+      eslint-plugin-regexp: 3.3.1(eslint@10.11.0)
+      eslint-plugin-unicorn: 76.0.0(eslint@10.11.0)
       globals: 17.12.0
       typescript: 6.0.3
       typescript-eslint: 8.70.1(eslint@10.11.0)(typescript@6.0.3)
@@ -2356,7 +2356,7 @@ snapshots:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.11.0)
       eslint: 10.11.0
 
-  eslint-plugin-regexp@3.3.0(eslint@10.11.0):
+  eslint-plugin-regexp@3.3.1(eslint@10.11.0):
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.11.0)
       '@eslint-community/regexpp': 4.12.2
@@ -2367,7 +2367,7 @@ snapshots:
       regexp-ast-analysis: 0.7.1
       scslre: 0.3.0
 
-  eslint-plugin-unicorn@75.0.0(eslint@10.11.0):
+  eslint-plugin-unicorn@76.0.0(eslint@10.11.0):
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@10.11.0)
       '@eslint/css-tree': 4.1.0
