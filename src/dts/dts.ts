@@ -42,6 +42,8 @@ function toKey(key: string) {
 }
 
 export function isAstEqual(ast1: Ast, ast2: Ast): boolean {
+	if (ast1 === ast2) return true;
+
 	while (ast1.type === ast2.type) {
 		if (isPrimitive(ast1)) {
 			return true;
