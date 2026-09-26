@@ -47,13 +47,11 @@ export const mergeArray = makeTraverse({
 			}
 		}
 
-		if (amountArraysFound <= 1) {
-			return false;
-		}
-
-		return {
-			type: Types.union,
-			value: union,
-		};
+		return amountArraysFound <= 1
+			? false
+			: {
+					type: Types.union,
+					value: union,
+				};
 	},
 });

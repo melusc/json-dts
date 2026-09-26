@@ -52,15 +52,15 @@ function compile(file: URL): void {
 			diagnostic.category === ts.DiagnosticCategory.Warning,
 	);
 
-	if (errors.length > 0) {
-		const message = ts.formatDiagnosticsWithColorAndContext(errors, {
-			getCurrentDirectory: ts.sys.getCurrentDirectory,
-			getCanonicalFileName: fileName => fileName,
-			getNewLine: () => '\n',
-		});
+	if (errors.length === 0) return;
 
-		throw new Error(message);
-	}
+	const message = ts.formatDiagnosticsWithColorAndContext(errors, {
+		getCurrentDirectory: ts.sys.getCurrentDirectory,
+		getCanonicalFileName: fileName => fileName,
+		getNewLine: () => '\n',
+	});
+
+	throw new Error(message);
 }
 
 const outDirectory = new URL('fast-check-out/', import.meta.url);

@@ -51,14 +51,15 @@ export function makeTraverse(traversers: TraversalCallback) {
 				}
 			}
 
-			if (isObject(ast)) {
-				const newAst = traversers.object?.(ast) ?? false;
-				if (newAst !== false) {
-					onChange();
-					didModify = true;
-					ast = newAst;
-				}
-			}
+			if (!isObject(ast)) continue;
+
+			const newAst = traversers.object?.(ast) ?? false;
+
+			if (newAst === false) continue;
+
+			onChange();
+			didModify = true;
+			ast = newAst;
 		} while (didModify);
 
 		if (isPrimitive(ast)) {

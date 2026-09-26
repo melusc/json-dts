@@ -46,13 +46,11 @@ export const simplifyUnion = makeTraverse({
 			}
 		}
 
-		if (!didMerge) {
-			return false;
-		}
-
-		return {
-			type: Types.union,
-			value: result,
-		};
+		return didMerge
+			? {
+					type: Types.union,
+					value: result,
+				}
+			: false;
 	},
 });
