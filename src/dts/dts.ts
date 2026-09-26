@@ -38,11 +38,7 @@ function isValidVariableName(name: string) {
 }
 
 function toKey(key: string) {
-	if (isValidVariableName(key)) {
-		return key;
-	}
-
-	return JSON.stringify(key);
+	return isValidVariableName(key) ? key : JSON.stringify(key);
 }
 
 export function isAstEqual(ast1: Ast, ast2: Ast): boolean {
@@ -82,11 +78,10 @@ export function isAstEqual(ast1: Ast, ast2: Ast): boolean {
 
 			const value2 = ast2_.value.get(key)!;
 
-			if (value1.optional !== value2.optional) {
-				return false;
-			}
-
-			if (!isAstEqual(value1.value, value2.value)) {
+			if (
+				value1.optional !== value2.optional ||
+				!isAstEqual(value1.value, value2.value)
+			) {
 				return false;
 			}
 		}
@@ -147,11 +142,9 @@ class ArrayType {
 	constructor(public readonly value: Token) {}
 
 	toString(): string {
-		if (this.value.type !== Types.union || this.value.value.size <= 1) {
-			return [this.value.toString(), '[]'].join('');
-		}
-
-		return ['Array<', this.value.toString(), '>'].join('');
+		return this.value.type !== Types.union || this.value.value.size <= 1
+			? [this.value.toString(), '[]'].join('')
+			: ['Array<', this.value.toString(), '>'].join('');
 	}
 }
 
@@ -161,11 +154,9 @@ class UnionType {
 	constructor(public readonly value: Set<Token>) {}
 
 	toString(): string {
-		if (this.value.size === 0) {
-			return 'any';
-		}
-
-		return [...this.value].map(token => token.toString()).join(' | ');
+		return this.value.size === 0
+			? 'any'
+			: [...this.value].map(token => token.toString()).join(' | ');
 	}
 }
 
@@ -209,11 +200,9 @@ export function toDts(ast: Ast, name?: string): string {
 			return traverseObject(ast, key);
 		}
 
-		if (isUnion(ast)) {
-			return new UnionType(new Set([...ast.value].map(v => traverse(v, key))));
-		}
-
-		return new ArrayType(traverse(ast.value, key));
+		return isUnion(ast)
+			? new UnionType(new Set([...ast.value].map(v => traverse(v, key))))
+			: new ArrayType(traverse(ast.value, key));
 	}
 
 	let stringified: string;

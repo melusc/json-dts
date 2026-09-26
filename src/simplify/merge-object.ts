@@ -102,13 +102,11 @@ export const mergeObject = makeTraverse({
 			}
 		}
 
-		if (amountObjectsFound <= 1) {
-			return false;
-		}
-
-		return {
-			type: Types.union,
-			value: result,
-		};
+		return amountObjectsFound <= 1
+			? false
+			: {
+					type: Types.union,
+					value: result,
+				};
 	},
 });

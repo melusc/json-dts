@@ -111,33 +111,29 @@ function toAstInternal(
 	}
 
 	if (isReadonlyArray(input)) {
-		if (input.length === 0) {
-			return {
-				type: Types.array,
-				value: {
-					type: Types.any,
-				},
-			};
-		}
-
-		return {
-			type: Types.array,
-			value: {
-				type: Types.union,
-				value: new Set(
-					input.map((value, index) => {
-						const subPath = [...path, String(index)];
-						if (!filter(subPath)) {
-							return {
-								type: Types.any,
-							};
-						}
-
-						return toAstInternal(value, subPath, filter);
-					}),
-				),
-			},
-		};
+		return input.length === 0
+			? {
+					type: Types.array,
+					value: {
+						type: Types.any,
+					},
+				}
+			: {
+					type: Types.array,
+					value: {
+						type: Types.union,
+						value: new Set(
+							input.map((value, index) => {
+								const subPath = [...path, String(index)];
+								return filter(subPath)
+									? toAstInternal(value, subPath, filter)
+									: {
+											type: Types.any,
+										};
+							}),
+						),
+					},
+				};
 	}
 
 	const result = new Map<string, ObjectValueAst>();
