@@ -167,8 +167,8 @@ importers:
   .:
     dependencies:
       camelcase:
-        specifier: ^9.0.0
-        version: 9.0.0
+        specifier: ^10.0.0
+        version: 10.0.0
     devDependencies:
       '@ava/typescript':
         specifier: ^7.0.0
@@ -693,9 +693,9 @@ packages:
     resolution: {integrity: sha512-kfzR4zzQtAE9PC7CzZsjl3aBNbXWuXiSeOCdLcPpBfGW8YuCqQHcRPFDbr/BPVmd3EEPVpuFzLyuT/cUhPr4OQ==}
     engines: {node: '>=12.20'}
 
-  camelcase@9.0.0:
-    resolution: {integrity: sha512-TO9xmyXTZ9HUHI8M1OnvExxYB0eYVS/1e5s7IDMTAoIcwUd+aNcFODs6Xk83mobk0velyHFQgA1yIrvYc6wclw==}
-    engines: {node: '>=20'}
+  camelcase@10.0.0:
+    resolution: {integrity: sha512-p1wew5BGDCONz/5R+xHF6ByqXQM2V+5r4e+FdlFUeROawuMPimdDOFLw5k2QSqp1rm5h2QAglToqJyvnsl3ArQ==}
+    engines: {node: '>=22'}
 
   caniuse-lite@1.0.30001815:
     resolution: {integrity: sha512-uDybUEyfgbyJJ93J1vikTylBX31AkdVYeVPeffMQpf8XN7hSfr0oZOn4VFOIMNvtU5+rHvC5Udg2TgtJKHm23Q==}
@@ -2186,7 +2186,7 @@ snapshots:
 
   callsites@4.2.0: {}
 
-  camelcase@9.0.0: {}
+  camelcase@10.0.0: {}
 
   caniuse-lite@1.0.30001815: {}
 
