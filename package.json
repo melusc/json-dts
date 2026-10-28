@@ -28,7 +28,7 @@
 		"@lusc/clean-package": "^4.0.0",
 		"@lusc/eslint-config": "^21.1.0",
 		"@lusc/tsconfig": "^7.2.1",
-		"@types/node": "^24.19.2",
+		"@types/node": "^26.6.5",
 		"ava": "^8.1.2",
 		"eslint": "^10.13.0",
 		"prettier": "^3.9.10",
