@@ -183,8 +183,8 @@ importers:
         specifier: ^21.1.0
         version: 21.1.0(@typescript-eslint/utils@8.72.0(eslint@10.13.0)(typescript@6.0.3))(eslint@10.13.0)
       '@lusc/tsconfig':
-        specifier: ^7.2.1
-        version: 7.2.1
+        specifier: ^8.0.0
+        version: 8.0.0
       '@types/node':
         specifier: ^26.6.5
         version: 26.6.5
@@ -323,9 +323,9 @@ packages:
     peerDependencies:
       eslint: ^10.13.0
 
-  '@lusc/tsconfig@7.2.1':
-    resolution: {integrity: sha512-BckyzQRTbjPoeL9wRTc8hnHwCl4u8F0Z27dhcm7LtktB3DuPhUX3XIgr3syfXxDl3mT6/y6YpjesG4MIG86rAA==}
-    engines: {node: ^20.19.1 || ^22.15.0 || ^24.6.0 || ^25.0.0}
+  '@lusc/tsconfig@8.0.0':
+    resolution: {integrity: sha512-GNM7qgzUbH9ZfWFzr5vQNOMCSjMqgu69xM62iPpWrQECqfLQ/qHutZHDufbHexiK4GQUr/HAkCChMZR8ng8EmQ==}
+    engines: {node: ^24.22.1 || ^26.12.1}
 
   '@mapbox/node-pre-gyp@2.0.3':
     resolution: {integrity: sha512-uwPAhccfFJlsfCxMYTwOdVfOz3xqyj8xYL3zJj8f0pb30tLohnnFPhLuqp4/qoEz8sNxe4SESZedcBojRefIzg==}
@@ -1820,7 +1820,7 @@ snapshots:
       - supports-color
       - ts-declaration-location
 
-  '@lusc/tsconfig@7.2.1': {}
+  '@lusc/tsconfig@8.0.0': {}
 
   '@mapbox/node-pre-gyp@2.0.3':
     dependencies:
