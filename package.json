@@ -20,7 +20,7 @@
 	"exports": {
 		".": "./dist/src/index.js"
 	},
-	"packageManager": "pnpm@12.15.0",
+	"packageManager": "pnpm@12.16.1",
 	"description": "Convert json to typescript dts",
 	"devDependencies": {
 		"@ava/typescript": "^7.0.0",
@@ -28,8 +28,8 @@
 		"@lusc/clean-package": "^4.0.0",
 		"@lusc/eslint-config": "^21.1.0",
 		"@lusc/tsconfig": "^8.0.0",
-		"@types/node": "^26.6.5",
-		"ava": "^8.1.2",
+		"@types/node": "^26.6.6",
+		"ava": "^8.2.0",
 		"eslint": "^10.13.0",
 		"prettier": "^3.9.10",
 		"rimraf": "^6.1.3",
